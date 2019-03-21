@@ -1,0 +1,110 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+swiper{
+  height: 100%;
+}
+.f_10{
+  font-size:10px!important;
+}
+.f_12{
+  font-size:12px!important;
+}
+.f_14{
+  font-size: 14px!important;
+}
+.f_16{
+  font-size:16px!important;
+}
+.c_l{
+  text-align: left;
+}
+.c_r{
+  text-align: right;
+}
+ /*高清屏一像素边框*/
+.b_top{
+  border-top: 1rpx solid #e5e5e5;
+}
+.b_bot{
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.b_lft{
+  border-left: 1rpx solid #e5e5e5;
+}
+.b_rgt{
+  border-right: 1rpx solid #e5e5e5;
+}
+.b_full{
+  border:1px solid #e5e5e5;
+}
+.h_100{
+  height: 100%
+}
+
+/*弹性盒模型*/
+.flex{
+  display: flex;
+  flex-direction: row;  
+}
+.flex.vervical{
+  flex-direction: column;
+}
+/*居中对齐*/
+.flex.center{   
+  align-items:center;
+  justify-content:center;
+}
+/*两段对齐*/
+.flex.between{
+   align-items:center;
+   justify-content: space-between;
+}
+.flex .flex_item1{
+  flex:1;
+  display: block;
+}
+.flex .item2{
+  flex:2;
+}
+.clr::after{
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.common_title{
+  width: 714rpx;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 30rpx;
+  font-size: 36rpx;
+  color: #0b0b0b;
+  box-sizing: border-box;
+}
+.common_title::before{
+  content: '';
+  display: block;
+  width: 14rpx;
+  height: 14rpx;
+  background: #ffe401;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -7rpx;
+}

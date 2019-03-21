@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/result/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "e修大师",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#989898",
+    "selectedColor": "#0b0b0b",
+    "list": [
+      {
+        "selectedIconPath": "images/check_yes.jpg",
+        "iconPath": "images/check_no.png",
+        "pagePath": "pages/index/index",
+        "text": "修手机"
+      },
+      {
+        "selectedIconPath": "images/phone_yes.jpg",
+        "iconPath": "images/phone_no.png",
+        "pagePath": "pages/result/index",
+        "text": "卖手机"
+      },
+      {
+        "selectedIconPath": "images/order_yes.jpg",
+        "iconPath": "images/order_no.png",
+        "pagePath": "pages/index/index",
+        "text": "订单"
+      }
+    ]
+  }
+}

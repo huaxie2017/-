@@ -1,0 +1,47 @@
+<view class="result">
+  <image src="../../images/success_x.png" class="resultImg"></image>
+  <view class='price'>
+    订单提交成功 188元
+  </view>
+  <view class="time">
+    <text class="title">限时保价</text>
+    <text class="timeNum">03</text><text class='line'>:</text>
+    <text class='timeNum m_l'>41</text><text class='line'>:</text>
+    <text class="timeNum m_l">20</text>
+  </view>
+  <view class="resultInfo">
+    <view class="topic">
+      <view class="fast">请尽快寄出以免再次讲价</view>
+      <view>客服将联系您确认上门/到店时间及地点，请保持手机畅通</view>
+    </view>
+    <view class='orderInfo' style='background-image:url(../../images/order_bg_x.jpg)'>
+      <view class='orderNum'>订单编号 <text class="num_l">123456</text></view>
+      <view class="question">如有任何疑问，请点击拨打客服热线：<text class="tel" bindtap="calling">0755-83259225</text></view>
+    </view>
+    <view class='common_title'>
+     用户评价
+    </view>
+    <view class="konw flex center">
+      <view class='flex_item1 konwOne'>
+        <image src='../../images/smk.png' class="card"></image>
+        <view>拔出SIM卡</view>
+        <view>备份个人数据</view>
+      </view>
+      <view class='flex_item1 konwOne'>
+        <image src='../../images/password.png' class="lock"></image>
+        <view>手动解除</view>
+        <view>所有密码</view>
+      </view>
+      <view class='flex_item1 konwOne'>
+        <image src='../../images/power.png' class="power"></image>
+        <view>充电至80%</view>
+        <view>以上</view>
+      </view>
+    </view>
+    <view class="konw_message">
+      <view>工作人员将会致电联系您</view>
+      <view>回收成功，现场支付现金</view>
+    </view>
+    <view class="lookOrder">查看订单</view>
+  </view>
+</view>

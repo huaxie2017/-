@@ -1,0 +1,463 @@
+/**index.wxss**/
+.indexPage{
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.banner{
+  width: 100%;
+  height: 351rpx;
+  position: relative;
+}
+.banner_img{
+  width: 750rpx;
+  height: 351rpx;
+  display: block;
+}
+.inputBox{
+  width: 696rpx;
+  height: 62rpx;
+  background: #fff;
+  border-radius: 29rpx;
+  position: absolute;
+  top: 26rpx;
+  left: 50%;
+  margin-left: -348rpx;
+  text-align: center;
+}
+.title{
+  font-size: 24rpx;
+  color: #989898;
+  line-height: 62rpx;
+  text-align: center;
+}
+.searchIcon{
+  display: inline-block;
+  width: 33rpx;
+  height: 33rpx;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+.priceMessage{
+  width: 714rpx;
+  background: #fff;
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  margin-top: -60rpx;
+  padding-top: 38rpx;
+  margin-bottom: 30rpx;
+  box-shadow:0px 8rpx 30rpx 0px rgba(60,60,58,0.18);
+  border-radius:20rpx;
+}
+.phoneMessage{
+  padding-bottom: 24rpx;
+}
+.phoneImg{
+  display: inline-block;
+  width: 112rpx;
+  height: 146rpx;
+  padding-left: 66rpx;
+  padding-right: 25rpx;
+}
+.phoneName{
+  font-size: 36rpx;
+  color: #0b0b0b;
+  font-weight: bold;
+  display: block;
+}
+.high{
+  font-size: 28rpx;
+  color: #989898;
+}
+.price{
+  color: #ff411b;
+  font-size: 36rpx;
+  margin-left: 20rpx;
+}
+.statusImg{
+  display: block;
+  width: 116rpx;
+  height: 103rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.recycleBtn{
+  width:168rpx;
+  height:58rpx;
+  background:rgba(255,228,1,1);
+  border-radius:29rpx;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 58rpx;
+  color: #0b0b0b;
+  font-weight: 500;
+  position: absolute;
+  top: 72rpx;
+  right: 26rpx;
+}
+.num_down{
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 66rpx;
+  padding-top: 18rpx;
+  padding-bottom: 16rpx;
+}
+.downIcon{
+  width: 24rpx;
+  height: 27rpx;
+  vertical-align: middle;
+}
+.price_down{
+  font-size: 26rpx;
+  color: #989898;
+  margin-left: 10rpx;
+}
+.recycle{
+  width: 714rpx;
+  margin: 0 auto;
+  margin-bottom: 36rpx;
+}
+.recycle_item{
+  width: 347rpx;
+  height: 181rpx;
+  box-shadow:0px 8rpx 30rpx 0px rgba(60,60,58,0.18);
+}
+.free_help{
+  width: 714rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  font-size: 34rpx;
+  color: #0b0b0b;
+  letter-spacing: 2rpx;
+  background: #ffe401;
+  border-radius: 45rpx;
+  border: none;
+  margin-bottom: 72rpx;
+  box-shadow:0px 4rpx 30rpx 0px rgba(60,60,58,0.1);
+}
+.time{
+  width: 714rpx;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 30rpx;
+}
+.circle{
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 14rpx;
+  height: 14rpx;
+  background: #ffe401;
+  border-radius: 50%;
+  margin-top: -7rpx;
+}
+.timeSet{
+  font-size: 36rpx;
+  color: #0b0b0b;
+  letter-spacing: 4rpx;
+  margin-right: 16rpx;
+}
+.timeNum{
+  width: 44rpx;
+  height: 44rpx;
+  display: inline-block;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 42rpx;
+  background: #0b0b0b;
+  color: #fff;
+  font-size: 12px;
+  margin-right: 10rpx;
+}
+.timeNum.m_l{
+  margin-left: 10rpx;
+}
+.swiper_box{
+  width: 714rpx;
+  margin: 0 auto;
+}
+.swiper_phone{
+  height: 270rpx;
+  background: #fff;
+}
+swiper-item{	
+  width: 210rpx!important;					
+  text-align: center;	
+  margin-right: 24rpx;
+  overflow: auto;
+}
+.phoneItem{
+  width: 210rpx;
+  height: 264rpx;
+  background: #fff;
+  position: relative;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  padding-top: 20rpx;
+  margin: 0 auto;
+  box-shadow:0px 8rpx 30rpx 0px rgba(60,60,58,0.18);
+}
+.num_top{
+  width: 52rpx;
+  height: 45rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.num_bg{
+  display: block;
+  width: 52rpx;
+  height: 45rpx;
+}
+.numOne{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 10px;
+  color: #0b0b0b;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  z-index: 12;
+}
+.phoneOne{
+  display: block;
+  width: 74rpx;
+  height: 151rpx;
+  margin: 0 auto;
+}
+.phoneTitle{
+  text-align: center;
+  font-size: 28rpx;
+  color: #0b0b0b;
+  margin-top: 12rpx;
+}
+.priceChange{
+  text-align:  center;
+}
+.price_new{
+  font-size: 24rpx;
+  color: #ff411b;
+  margin-right: 14rpx;
+}
+.price_old{
+  font-size: 24rpx;
+  color: #989898;
+  text-decoration: line-through;
+}
+.line_he{
+  width: 714rpx;
+  margin: 0 auto;
+  margin-top: 40rpx;
+}
+.line_g{
+  width: 66rpx;
+  height: 6rpx;
+  background: #989898;
+  margin-bottom: 20rpx;
+  display: block;
+}
+.message_on{
+  width: 714rpx;
+  margin: 0 auto;
+  height: 66rpx;
+  background: #eeeeee;
+  border-radius: 16rpx;
+}
+.message_l{
+  padding-left: 24rpx;
+  padding-right: 14rpx;
+}
+.message_icon{
+  width: 24rpx;
+  height: 27rpx;
+  display: block;
+}
+.who{
+  font-size: 24rpx;
+  color: #989898;
+  padding-left: 20rpx;
+  border-left: 1rpx solid #989898;
+}
+.comment{
+  width: 714rpx;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 30rpx;
+  font-size: 36rpx;
+  color: #0b0b0b;
+  margin-top: 70rpx;
+  margin-bottom: 34rpx;
+  box-sizing: border-box;
+}
+.comment::before{
+  content: '';
+  display: block;
+  width: 14rpx;
+  height: 14rpx;
+  background: #ffe401;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -7rpx;
+}
+.comment_box{
+  width: 714rpx;
+  box-sizing: border-box;
+  padding: 0 28rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  box-shadow:0px 8rpx 30rpx 0px rgba(60,60,58,0.18);
+  margin: 0 auto;
+}
+.comment_ul{
+  width: 100%;
+  max-height: 498rpx;
+  box-sizing: border-box;
+  padding-top: 50rpx;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.commtent_li{
+  width: 100%;
+  margin-bottom: 45rpx;
+}
+.peopleInfo{
+  width: 98rpx;
+  text-align: center;
+  margin-right: 10rpx;
+}
+.peopleLogo{
+  display: block;
+  width: 98rpx;
+  height: 98rpx;
+  border-radius: 50%;
+  margin-bottom: 24rpx;
+}
+.peopleName{
+  font-size: 24rpx;
+  color: #a8a8a8;
+  display: block;
+}
+.comment_bg{
+  width: 540rpx;
+  height: 106rpx;
+  background-size: 100% 100%;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+.comment_message{
+  display: block;
+  font-size: 26rpx;
+  color: #0b0b0b;
+  position: absolute;
+  top: 50%;
+  left: 30rpx;
+  right: 30rpx;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+.shopInfo{
+  font-size: 24rpx;
+  color: #989898;
+  margin-top: 12rpx;
+}
+.comment_more{
+ width: 100%;
+ height: 84rpx;
+ line-height: 84rpx;
+ text-align: right;
+ box-sizing: border-box;
+ padding-right: 30rpx;
+ font-size: 24rpx;
+ color: #989898;
+}
+.moreIcon{
+  display: inline-block;
+  width: 23rpx;
+  height: 24rpx;
+  vertical-align: middle;
+  margin-left: 18rpx;
+}
+.stepBox{
+  width: 714rpx;
+  margin: 0 auto;
+}
+.stepOne{
+  text-align: center;
+}
+.step1{
+  width:94rpx;
+  height:94rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 8px 30px 0px rgba(60,60,58,0.18);
+  border-radius:50%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.taskPhone{
+  display: block;
+  width: 27rpx;
+  height: 41rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+}
+.taskOrder{
+  display: block;
+  width: 40rpx;
+  height: 43rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+}
+.taskChange{
+  display: block;
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+}
+.taskMoney{
+  display: block;
+  width: 41rpx;
+  height: 41rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+}
+.stepName{
+  font-size: 26rpx;
+  color: #989898;
+  margin-top: 24rpx;
+}
+.slogin{
+  margin-top: 40rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #ccc;
+  margin-bottom: 60rpx;
+}

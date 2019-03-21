@@ -1,0 +1,138 @@
+.result{
+  width: 100%;
+}
+.resultImg{
+  width: 100%;
+  height: 281rpx;
+  display: block;
+}
+.price{
+  color: #0b0b0b;
+  font-size: 36rpx;
+  text-align: center;
+  font-weight: 800;
+}
+.time{
+  text-align: center;
+  margin-top: 25rpx;
+}
+.title{
+  font-size: 30rpx;
+  color: #000;
+  margin-right: 10rpx;
+}
+.timeNum{
+  width: 44rpx;
+  height: 44rpx;
+  display: inline-block;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 42rpx;
+  background: #0b0b0b;
+  color: #fff;
+  font-size: 12px;
+  margin-right: 10rpx;
+}
+.timeNum.m_l{
+  margin-left: 10rpx;
+}
+.resultInfo{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 25rpx 0 28rpx;
+  margin-top: 30rpx;
+}
+.topic{
+  width: 100%;
+  background: #eee;
+  text-align: center;
+  padding: 20rpx 18rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  color: #989898;
+  margin-bottom: 38rpx;
+}
+.fast{
+  margin-bottom: 20rpx;
+}
+.orderInfo{
+  width: 100%;
+  height: 211rpx;
+  background-size: 100% 100%;
+  box-sizing: border-box;
+  padding-top: 42rpx;
+  padding-left: 42rpx;
+  padding-bottom: 56rpx;
+  margin-bottom: 50rpx;
+}
+.orderNum{
+  font-size: 30rpx;
+  color: #0b0b0b;
+}
+.num_l{
+  margin-left: 34rpx;
+}
+.question{
+  margin-top: 30rpx;
+  font-size: 24rpx;
+  color: #989898;
+}
+.tel{
+  text-decoration: underline;
+}
+.konw{
+  width: 100%;
+  padding-top: 50rpx;
+  padding-bottom: 45rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 4rpx 38rpx 0px rgba(60,60,58,0.1);
+  border-radius:20rpx;
+  margin-top: 40rpx;
+  margin-bottom: 70rpx;
+}
+.konwOne{
+ text-align: center;
+ font-size: 26rpx;
+ color: #989898;
+}
+.card{
+  display: block;
+  width: 59rpx;
+  height: 64rpx;
+  margin: 0 auto;
+  margin-bottom: 32rpx;
+}
+.lock{
+  display: block;
+  width: 53rpx;
+  height: 63rpx;
+  margin: 0 auto;
+  margin-bottom: 32rpx;
+}
+.power{
+  display: block;
+  width: 69rpx;
+  height: 37rpx;
+  margin: 0 auto;
+  margin-bottom: 48rpx;
+}
+.konw_message{
+  text-align: center;
+  font-size: 24rpx;
+  color: #989898;
+  line-height: 36rpx;
+  margin-bottom: 46rpx;
+}
+.lookOrder{
+  width:100%;
+  height:89rpx;
+  background:rgba(255,228,1,1);
+  box-shadow:0px 18rpx 22rpx 0px rgba(255,210,1,0.3);
+  border-radius:45rpx;
+  line-height: 89rpx;
+  text-align: center;
+  font-size: 34rpx;
+  color: #0b0b0b;
+  margin-bottom: 80rpx;
+  font-weight: 800;
+}

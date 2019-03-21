@@ -1,0 +1,210 @@
+<!--index.wxml-->
+<view class="indexPage">
+  <view class="banner">
+     <image src="{{banner}}" class='banner_img'></image>
+     <view class="inputBox">
+        <image src="{{search}}" class='searchIcon'></image><text class="title">输入您想要回收的机型名称</text>
+     </view>
+  </view>
+  <view class="priceMessage">
+    <view class="phoneMessage flex center b_bot">
+      <image src='{{phoneImg}}' class='phoneImg'></image>
+      <view class="flex_item1">
+        <text class='phoneName'>iPhone X</text>
+        <text class="high">最高回收价<text class="price">￥3888</text></text>
+      </view>
+    </view>
+    <view class="num_down">
+      <image class='downIcon' src="{{downImg}}"></image>
+      <text class="price_down">下月约降￥300</text>
+    </view>
+    <image src="../../images/status1.png" class="statusImg"></image>
+    <view class="recycleBtn">立即回收</view>
+  </view>
+  <view class='recycle flex center'>
+    <view class='flex_item1 c_l'>
+      <image src='{{recycle_phone}}' class='recycle_item'></image>
+    </view>
+    <view class='flex_item1 c_r'>
+      <image src='{{recycle_pad}}' class="recycle_item"></image>
+    </view>
+  </view>
+  <view class="free_help">免费估价</view>
+  <view class="time">
+    <text class="circle"></text>
+    <text class='timeSet'>限时高价</text>
+    <text class="timeNum">03</text><text class='line'>:</text>
+    <text class='timeNum m_l'>41</text><text class='line'>:</text>
+    <text class="timeNum m_l">20</text>
+  </view>
+  <view class="swiper_box">
+    <swiper class="swiper_phone" indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}"        duration="{{swiper.duration}}" indicator-color="{{swiper.indicatorColor}}" 
+    circular="{{swiper.circular}}" display-multiple-items='3'>
+      <swiper-item>
+        <view class='phoneItem'>	
+          <image src='{{phoneOne}}' class="phoneOne"></image>
+          <view class="phoneTitle">华为P10</view>
+          <view class="priceChange">
+           <text class="price_new">￥ 1128</text>
+           <text class="price_old">￥ 1500</text>
+          </view>
+          <view class="num_top">
+           <image src="{{numBg}}" class="num_bg"></image>
+           <text class="numOne">NO1</text>
+          </view>
+        </view>    
+      </swiper-item>
+      <swiper-item>
+        <view class='phoneItem'>	
+          <image src='{{phoneOne}}' class="phoneOne"></image>
+          <view class="phoneTitle">华为P10</view>
+          <view class="priceChange">
+           <text class="price_new">￥ 1128</text>
+           <text class="price_old">￥ 1500</text>
+          </view>
+          <view class="num_top">
+           <image src="{{numBg}}" class="num_bg"></image>
+           <text class="numOne">NO2</text>
+          </view>
+        </view>    
+      </swiper-item>
+      <swiper-item>
+        <view class='phoneItem'>	
+          <image src='{{phoneOne}}' class="phoneOne"></image>
+          <view class="phoneTitle">华为P10</view>
+          <view class="priceChange">
+           <text class="price_new">￥ 1128</text>
+           <text class="price_old">￥ 1500</text>
+          </view>
+          <view class="num_top">
+           <image src="{{numBg}}" class="num_bg"></image>
+           <text class="numOne">NO3</text>
+          </view>
+        </view>    
+      </swiper-item>
+      <swiper-item>
+        <view class='phoneItem'>	
+          <image src='{{phoneOne}}' class="phoneOne"></image>
+          <view class="phoneTitle">华为P10</view>
+          <view class="priceChange">
+           <text class="price_new">￥ 1128</text>
+           <text class="price_old">￥ 1500</text>
+          </view>
+          <view class="num_top">
+           <image src="{{numBg}}" class="num_bg"></image>
+           <text class="numOne">NO4</text>
+          </view>
+        </view>    
+      </swiper-item>
+  </swiper>
+  </view>
+  <view class="line_he">
+    <text class='line_g'></text>
+  </view>
+  <view class='message_on flex center'>
+    <view class="message_l">
+      <image src="{{messageIcon}}" class='message_icon'></image>
+    </view>
+    <view class="flex_item1 who">
+      深圳林先生 IPhone X 成功回收 进账￥3899
+    </view>
+  </view>
+  <view class='comment'>
+     用户评价
+  </view>
+  <view class="comment_box">
+    <view class="comment_ul">
+      <view class="commtent_li clr">
+        <view class='peopleInfo fl'>
+          <image src='{{peopleImg}}' class="peopleLogo"></image>
+          <text class="peopleName">林*</text>
+        </view>
+        <view class="fr">
+          <view class="comment_bg" style='background-image:url(../../images/message_bg.png)'>
+            <text class='comment_message'>专业到位，从下单到接到预约电话，细致认真的完成回收工作</text>
+          </view>
+          <view class='shopInfo'>
+             iPhone6 进账￥2356
+          </view>
+        </view>
+      </view>
+      <view class="commtent_li clr">
+        <view class='peopleInfo fl'>
+          <image src='{{peopleImg}}' class="peopleLogo"></image>
+          <text class="peopleName">林*</text>
+        </view>
+        <view class="fr">
+          <view class="comment_bg" style='background-image:url(../../images/message_bg.png)'>
+            <text class='comment_message'>专业到位，从下单到接到预约电话，细致认真的完成回收工作</text>
+          </view>
+          <view class='shopInfo'>
+             iPhone6 进账￥2356
+          </view>
+        </view>
+      </view>
+      <view class="commtent_li clr">
+        <view class='peopleInfo fl'>
+          <image src='{{peopleImg}}' class="peopleLogo"></image>
+          <text class="peopleName">林*</text>
+        </view>
+        <view class="fr">
+          <view class="comment_bg" style='background-image:url(../../images/message_bg.png)'>
+            <text class='comment_message'>专业到位，从下单到接到预约电话，细致认真的完成回收工作</text>
+          </view>
+          <view class='shopInfo'>
+             iPhone6 进账￥2356
+          </view>
+        </view>
+      </view>
+      <view class="commtent_li clr">
+        <view class='peopleInfo fl'>
+          <image src='{{peopleImg}}' class="peopleLogo"></image>
+          <text class="peopleName">林*</text>
+        </view>
+        <view class="fr">
+          <view class="comment_bg" style='background-image:url(../../images/message_bg.png)'>
+            <text class='comment_message'>专业到位，从下单到接到预约电话，细致认真的完成回收工作</text>
+          </view>
+          <view class='shopInfo'>
+             iPhone6 进账￥2356
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="comment_more">
+      <text>查看全部评价</text><image src="../../images/moreIcon.jpg" class='moreIcon'></image>
+    </view>
+  </view>
+  <view class='comment'>
+     流程与保障
+  </view>
+  <view class="flex center stepBox">
+    <view class="flex_item1 stepOne">
+        <view class='step1'>
+          <image src="../../images/taskPhone.png" class='taskPhone'></image>
+        </view>
+        <text class="stepName">旧机估价</text>
+    </view>
+    <view class="flex_item1 stepOne">
+        <view class='step1'>
+          <image src="../../images/taskOrder.png" class='taskOrder'></image>
+        </view>
+        <text class="stepName">在线下单</text>
+    </view>
+    <view class="flex_item1 stepOne">
+        <view class='step1'>
+          <image src="../../images/taskChange.png" class='taskChange'></image>
+        </view>
+        <text class="stepName">专业回收</text>
+    </view>
+    <view class="flex_item1 stepOne">
+        <view class='step1'>
+          <image src="../../images/taskMoney.png" class='taskMoney'></image>
+        </view>
+        <text class="stepName">快速收款</text>
+    </view>
+  </view>
+  <view class='slogin'>
+    正品自营 | 任意品牌 | 极速回收 | 私隐保障
+  </view>
+</view>
