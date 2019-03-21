@@ -18,6 +18,7 @@ Page({
     peopleImg:'../../images/avaer.png',
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    commentList:[],
     swiper: {
       indicatorDots: false,
       autoplay: false,
@@ -36,6 +37,7 @@ Page({
     })
   },
   onLoad: function () {
+    var that = this
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -62,6 +64,16 @@ Page({
         }
       })
     }
+    wx.request({
+      url: app.globalData.Api +'/comment/getComment',
+      data: {},
+      header: { 'Content-Type': 'application/json' },
+      success: function (res) {
+        that.setData({
+          commentList:res.data.data
+        })
+      }
+    })
   },
   getUserInfo: function(e) {
     console.log(e)

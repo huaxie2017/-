@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    Api:'https://efix.ewiyi.com/api'
   }
 })

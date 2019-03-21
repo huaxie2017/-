@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/result/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/order/order",
+    "pages/myOrder/myOrder"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -29,7 +31,7 @@
       {
         "selectedIconPath": "images/order_yes.jpg",
         "iconPath": "images/order_no.png",
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/myOrder/myOrder",
         "text": "订单"
       }
     ]

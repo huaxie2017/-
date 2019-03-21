@@ -95,6 +95,7 @@ swiper{
   font-size: 36rpx;
   color: #0b0b0b;
   box-sizing: border-box;
+  font-weight: 800;
 }
 .common_title::before{
   content: '';

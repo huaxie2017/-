@@ -1,0 +1,89 @@
+<view class="orderContent">
+  <view>
+    <image src='../../images/stepOne.jpg' class="stepOne"></image>
+    <!-- <image src="../../images/stepTwo.jpg" class='stepTwo'></image>
+    <image src="../../images/stepThree.jpg" class='stepThree'></image> -->
+  </view>
+    <!--订单完成-->
+  <view class="orderFinish">
+    <image src="../../images/orderS.jpg" class="orderSuccess"></image>
+    <text class="successText">订单已完成</text>
+    <view class="successInfo">
+     <text class="successPrice">收款：</text>
+     <text class="successMoney">￥200</text>
+    </view>
+    <view class="orderInfo">
+       <view class="shopInfo">
+     <view class="common_title">交易信息</view>
+     <view class="flex center shopMessage">
+      <image src='../../images/phone.png' class="phone"></image>
+      <view class="message_p flex_item1">
+        <view class="phoneName">iPhone 7</view>
+        <view class="source">购买渠道：香港行货</view>
+      </view>
+     </view>
+     <view class="price flex center">
+      <text class="flex_item1 name">回收价</text>
+      <text class="flex_item1 money">￥188</text>
+     </view>
+    </view>
+    <view class="commentBtn">评价</view>
+    </view>
+  </view>
+
+  <!--订单进行中-->
+   <view class="orderInfo" style='display:none'>
+    <view class="address">
+     <view class="common_title">邮寄地址</view>
+     <view class="add">深圳市福田区上步工业区101栋二楼E16e修大师</view>
+     <view class="tel">电话：<text bindtap='calling'>0755-83259225</text></view>
+    </view>
+    <view class="shopInfo">
+     <view class="common_title">交易信息</view>
+     <view class="flex center shopMessage">
+      <image src='../../images/phone.png' class="phone"></image>
+      <view class="message_p flex_item1">
+        <view class="phoneName">iPhone 7</view>
+        <view class="source">购买渠道：香港行货</view>
+      </view>
+     </view>
+     <view class="price flex center">
+      <text class="flex_item1 name">预估价</text>
+      <text class="flex_item1 money">￥188</text>
+     </view>
+    </view>
+    <view class="addressInfo">
+      <view class="orderNum">
+        <text class="infoName">订单编号：</text>
+        <text class="infoM">162562</text>
+      </view>
+      <view class="orderNum">
+        <text class="infoName">下单时间：</text>
+        <text class="infoM">2019-03-15 14:42:22</text>
+      </view>
+      <view class="orderNum">
+        <text class="infoName">回收方式：</text>
+        <text class="infoM">邮寄回收</text>
+      </view>
+      <view class="orderNum">
+        <text class="infoName">您的姓名：</text>
+        <text class="infoM">老王</text>
+      </view>
+      <view class="orderNum">
+        <text class="infoName">您的电话：</text>
+        <text class="infoM">125689725</text>
+      </view>
+      <view class="orderNum">
+        <text class="infoName">预约时间：</text>
+        <text class="infoM">03-16 9:00-10:00</text>
+      </view>
+      <view class="orderNum">
+        <text class="infoName">收款方式：</text>
+        <text class="infoM">微信支付/支付宝</text>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+      <text class="cancel">取消订单</text>
+  </view> 
+</view>

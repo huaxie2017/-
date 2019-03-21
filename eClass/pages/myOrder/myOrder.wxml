@@ -1,0 +1,72 @@
+<view class="myOrder">
+ <!--没有订单显示-->
+  <!-- <view class="noOrder">
+     <image src="../../images/orderOut.jpg" class="noImg"></image>
+     <view class='noText'>您还没有回收订单噢~赶紧出手吧</view>
+  </view> -->
+  <!--订单显示-->
+  <view class="orderContent">
+    <view class="orderOne" bindtap='linkTo'>
+      <view class='timeStatus flex center'>
+       <view class="flex_item1 time">2019-03-14 14:45:42</view>
+       <view class="flex_item1 orderStatus">等待邮寄</view>
+      </view>
+      <view class="shopMessage flex center">
+       <image src="../../images/phone.png" class="shopImg"></image>
+       <view class="shopInfo flex_item1">
+         <view class="shopName">苹果 iPhone7</view>
+         <view class="way">邮寄回收</view>
+         <view>
+           <text class="shopTitle">预估价：</text>
+           <text class="price">￥188</text>
+         </view>
+       </view>
+      </view>
+      <view class="footerBtn">
+        <text class="cancel">取消订单</text>
+      </view>
+    </view>
+    <view class="orderOne">
+      <view class='timeStatus flex center'>
+       <view class="flex_item1 time">2019-03-14 14:45:42</view>
+       <view class="flex_item1 orderStatus">等待邮寄</view>
+      </view>
+      <view class="shopMessage flex center">
+       <image src="../../images/phone.png" class="shopImg"></image>
+       <view class="shopInfo flex_item1">
+         <view class="shopName">苹果 iPhone7</view>
+         <view class="way">邮寄回收</view>
+         <view>
+           <text class="shopTitle">预估价：</text>
+           <text class="price">￥188</text>
+         </view>
+       </view>
+      </view>
+      <view class="footerBtn">
+        <text class="cancel">取消订单</text>
+      </view>
+    </view>
+    <view class="orderOne">
+      <view class='timeStatus flex center'>
+       <view class="flex_item1 time">2019-03-14 14:45:42</view>
+       <!-- <view class="flex_item1 orderStatus">等待邮寄</view> -->
+       <view class="flex_item1 orderStatus success">订单完成</view>
+      </view>
+      <view class="shopMessage flex center">
+       <image src="../../images/phone.png" class="shopImg"></image>
+       <view class="shopInfo flex_item1">
+         <view class="shopName">苹果 iPhone7</view>
+         <view class="way">邮寄回收</view>
+         <view>
+           <text class="shopTitle">预估价：</text>
+           <text class="price">￥188</text>
+         </view>
+       </view>
+      </view>
+      <view class="footerBtn">
+        <!-- <text class="cancel">取消订单</text> -->
+        <text class="comment">评价</text>
+      </view>
+    </view>
+  </view>
+</view>

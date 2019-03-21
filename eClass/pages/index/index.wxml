@@ -113,60 +113,18 @@
      用户评价
   </view>
   <view class="comment_box">
-    <view class="comment_ul">
-      <view class="commtent_li clr">
+    <view class="comment_ul"> 
+      <view class="commtent_li clr" wx:for="{{commentList}}" wx:for-item="item" wx:key="index">
         <view class='peopleInfo fl'>
-          <image src='{{peopleImg}}' class="peopleLogo"></image>
-          <text class="peopleName">林*</text>
+          <image src='{{item.ava}}' class="peopleLogo"></image>
+          <text class="peopleName">{{item.name}}*</text>
         </view>
         <view class="fr">
           <view class="comment_bg" style='background-image:url(../../images/message_bg.png)'>
-            <text class='comment_message'>专业到位，从下单到接到预约电话，细致认真的完成回收工作</text>
+            <text class='comment_message'>{{item.comment}}</text>
           </view>
           <view class='shopInfo'>
-             iPhone6 进账￥2356
-          </view>
-        </view>
-      </view>
-      <view class="commtent_li clr">
-        <view class='peopleInfo fl'>
-          <image src='{{peopleImg}}' class="peopleLogo"></image>
-          <text class="peopleName">林*</text>
-        </view>
-        <view class="fr">
-          <view class="comment_bg" style='background-image:url(../../images/message_bg.png)'>
-            <text class='comment_message'>专业到位，从下单到接到预约电话，细致认真的完成回收工作</text>
-          </view>
-          <view class='shopInfo'>
-             iPhone6 进账￥2356
-          </view>
-        </view>
-      </view>
-      <view class="commtent_li clr">
-        <view class='peopleInfo fl'>
-          <image src='{{peopleImg}}' class="peopleLogo"></image>
-          <text class="peopleName">林*</text>
-        </view>
-        <view class="fr">
-          <view class="comment_bg" style='background-image:url(../../images/message_bg.png)'>
-            <text class='comment_message'>专业到位，从下单到接到预约电话，细致认真的完成回收工作</text>
-          </view>
-          <view class='shopInfo'>
-             iPhone6 进账￥2356
-          </view>
-        </view>
-      </view>
-      <view class="commtent_li clr">
-        <view class='peopleInfo fl'>
-          <image src='{{peopleImg}}' class="peopleLogo"></image>
-          <text class="peopleName">林*</text>
-        </view>
-        <view class="fr">
-          <view class="comment_bg" style='background-image:url(../../images/message_bg.png)'>
-            <text class='comment_message'>专业到位，从下单到接到预约电话，细致认真的完成回收工作</text>
-          </view>
-          <view class='shopInfo'>
-             iPhone6 进账￥2356
+             {{item.iPhone8}} 进账￥{{item.price}}
           </view>
         </view>
       </view>
