@@ -1,35 +1,41 @@
-.myOrder{
+.myOrder {
   width: 100%;
 }
-.noOrder{
+
+.noOrder {
   margin-top: 110rpx;
 }
-.noImg{
+
+.noImg {
   display: block;
   width: 100%;
   height: 324rpx;
 }
-.noText{
+
+.noText {
   font-size: 30rpx;
   color: #989898;
   margin-top: 40rpx;
   text-align: center;
 }
-.orderContent{
+
+.orderContent {
   margin-top: 45rpx;
   width: 100%;
   box-sizing: border-box;
   padding: 0 26rpx;
 }
-.orderOne{
+
+.orderOne {
   width: 100%;
-  background:rgba(255,255,255,1);
-  box-shadow:0px 4rpx 38rpx 0px rgba(60,60,58,0.1);
-  border-radius:20rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4rpx 38rpx 0px rgba(60, 60, 58, 0.1);
+  border-radius: 20rpx;
   box-sizing: border-box;
   margin-bottom: 30rpx;
 }
-.timeStatus{
+
+.timeStatus {
   height: 52rpx;
   line-height: 52rpx;
   width: 100%;
@@ -37,37 +43,44 @@
   box-sizing: border-box;
   border: 1rpx solid #eee;
 }
-.time{
+
+.time {
   text-align: left;
   font-size: 24rpx;
   color: #989898;
 }
-.orderStatus{
+
+.orderStatus {
   text-align: right;
   font-size: 24rpx;
   color: #f5633a;
 }
-.orderStatus.success{
+
+.orderStatus.success {
   color: #989898;
 }
-.shopMessage{
+
+.shopMessage {
   width: 100%;
   padding: 14rpx 30rpx 24rpx 30rpx;
   border: 1rpx solid #eee;
   box-sizing: border-box;
 }
-.shopImg{
+
+.shopImg {
   display: block;
   width: 106rpx;
   height: 98rpx;
   margin-right: 25rpx;
 }
-.shopName{
+
+.shopName {
   font-size: 30rpx;
   color: #0b0b0b;
   font-weight: 500;
 }
-.way{
+
+.way {
   width: 118rpx;
   height: 34rpx;
   background: #ffe401;
@@ -78,44 +91,49 @@
   line-height: 34rpx;
   margin-top: 14rpx;
 }
-.shopTitle{
+
+.shopTitle {
   font-size: 24rpx;
-  color:#0b0b0b;
+  color: #0b0b0b;
   font-weight: 500;
 }
-.price{
+
+.price {
   font-size: 24rpx;
-  color:#f5633a;
+  color: #f5633a;
   font-weight: 500;
 }
-.footerBtn{
+
+.footerBtn {
   width: 100%;
   height: 84rpx;
   text-align: right;
   padding: 0 30rpx;
   box-sizing: border-box;
-} 
-.cancel{
+}
+
+.cancel {
   display: inline-block;
-  width:172rpx;
-  height:60rpx;
-  border:1rpx solid rgba(228,228,228,1);
-  border-radius:30rpx;
+  width: 172rpx;
+  height: 60rpx;
+  border: 1rpx solid rgba(228, 228, 228, 1);
+  border-radius: 30rpx;
   font-size: 24rpx;
   color: #989898;
   text-align: center;
   line-height: 60rpx;
   margin-top: 12rpx;
 }
-.comment{
+
+.comment {
   display: inline-block;
-  width:172rpx;
-  height:60rpx;
-  border-radius:30rpx;
+  width: 172rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
   font-size: 24rpx;
   color: #0b0b0b;
   text-align: center;
   line-height: 60rpx;
   margin-top: 12rpx;
-  background:rgba(255,228,1,1);
+  background: rgba(255, 228, 1, 1);
 }

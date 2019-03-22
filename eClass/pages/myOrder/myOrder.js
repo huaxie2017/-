@@ -13,9 +13,14 @@ Page({
   onLoad: function (options) {
     
   },
-  linkTo(){
-    wx.redirectTo({
-      url: "../order/order"
+  linkTo(e){
+    wx.navigateTo({
+      url: "../order/order?orderId=" + e.currentTarget.id
+    })
+  },
+  ToComment(e){
+    wx.navigateTo({
+      url: "../comment/comment?orderId=" + e.currentTarget.id
     })
   },
   /**

@@ -92,7 +92,7 @@ swiper{
   margin: 0 auto;
   position: relative;
   padding-left: 30rpx;
-  font-size: 36rpx;
+  font-size: 30rpx;
   color: #0b0b0b;
   box-sizing: border-box;
   font-weight: 800;

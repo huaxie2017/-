@@ -1,0 +1,99 @@
+.comment {
+  width: 100%;
+  padding-top: 45rpx;
+}
+
+.commentInfo {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 26rpx;
+}
+
+.shopInfo {
+  width: 100%;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4rpx 38rpx 0px rgba(60, 60, 58, 0.1);
+  border-radius: 20rpx;
+  margin-top: 38rpx;
+  padding-top: 36rpx;
+  padding-left: 15rpx;
+  box-sizing: border-box;
+}
+
+.shopMessage {
+  margin-top: 30rpx;
+  padding-bottom: 18rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.phone {
+  display: block;
+  width: 106rpx;
+  height: 98rpx;
+  margin-right: 18rpx;
+  padding-left: 30rpx;
+}
+
+.phoneName {
+  font-size: 28rpx;
+  color: #0b0b0b;
+  font-weight: 500;
+}
+
+.source {
+  font-size: 24rpx;
+  color: #989898;
+  margin-top: 24rpx;
+}
+
+.price {
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.name {
+  color: #0b0b0b;
+  font-size: 30rpx;
+  font-weight: 500;
+  padding-left: 30rpx;
+  text-align: left;
+}
+
+.money {
+  font-size: 30rpx;
+  color: #ff5534;
+  font-weight: 500;
+  padding-right: 26rpx;
+  text-align: right;
+}
+.writeBox{
+  width: 100%;
+  margin-top: 45rpx;
+}
+.textBox{
+  width: 100%;
+  display: block;
+  height: 300rpx;
+  padding-top: 30rpx;
+  border:1rpx solid #dcdcdc;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #0b0b0b;
+  text-indent: 30rpx;
+  border-radius: 20rpx;
+}
+.save{
+  width:100%;
+  height:89rpx;
+  background:rgba(255,228,1,1);
+  box-shadow:0px 18rpx 22rpx 0px rgba(255,210,1,0.3);
+  border-radius:45rpx;
+  font-size: 34rpx;
+  color: #0b0b0b;
+  font-weight: 800;
+  text-align: center;
+  line-height: 89rpx;
+  margin-top: 120rpx;
+}

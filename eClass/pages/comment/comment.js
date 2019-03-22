@@ -4,38 +4,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orderId: ''
+    orderId: '',
+    comment:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options)
     this.setData({
       orderId: options.orderId
     })
   },
-  calling: function() {
-
-    wx.makePhoneCall({
-
-      phoneNumber: '0755-83259225',
-
-      success: function() {
-
-        console.log("拨打电话成功！")
-
-      },
-
-      fail: function() {
-
-        console.log("拨打电话失败！")
-
-      }
-
+  inputContent(e){
+    this.setData({
+      comment: e.detail.value
     })
+  },
+  save(){
+   var content=this.data.comment
+   if(content.length==0){
+     wx.showModal({
+       title: '提示',
+       content: '评论不能为空',
+       showCancel:false,
+       success: function (res) {
+         if (res.confirm) {
+           console.log('用户点击确定')
+         } else {
+           console.log('用户点击取消')
+         }
 
+       }
+     })
+   }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,6 +1,6 @@
 .orderContent{
   width: 100%;
-  padding-top: 46rpx;
+  padding-top: 44rpx;
 }
 .stepOne{
   display: block;
@@ -181,4 +181,42 @@
   text-align: center;
   line-height: 89rpx;
   margin-top: 56rpx;
+}
+.waitContent{
+  width:100%;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 4rpx 38rpx 0px rgba(60,60,58,0.1);
+  border-radius:20rpx;
+  margin-bottom: 38rpx;
+  padding-top: 36rpx;
+  padding-left: 15rpx;
+  padding-bottom: 38rpx;
+  box-sizing: border-box;
+}
+.waitText{
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  padding-right: 15rpx;
+  font-size: 28rpx;
+  line-height: 48rpx;
+  color: #989898;
+  margin-top: 24rpx;
+}
+.giveShow{
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+.giveUp{
+  display: inline-block;
+  width: 70rpx;
+  height: 70rpx;
+  vertical-align: middle;
+}
+.giveText{
+  font-size: 36rpx;
+  color: #000;
+  font-weight: 800;
+  margin-left: 26rpx;
+  vertical-align: middle;
 }
