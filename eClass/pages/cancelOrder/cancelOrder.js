@@ -4,8 +4,30 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orderId: '',
-    comment: ''
+    orderId:'',
+    reasonList: [{
+        status: 0,
+        reason: '交易时间不对'
+      },
+      {
+        status: 0,
+        reason: '其他原因'
+      },
+      {
+        status: 0,
+        reason: '自己留用'
+      },
+      {
+        status: 0,
+        reason: '价格不符合预期'
+      },
+      {
+        status: 0,
+        reason: '下单错误'
+      },
+    ],
+    chooseIndex:null,
+    cancelShow:false
   },
 
   /**
@@ -16,19 +38,20 @@ Page({
       orderId: options.orderId
     })
   },
-  inputContent(e) {
+  chooseReason(e){
+    var that=this
+    var index = e.currentTarget.dataset.index
     this.setData({
-      comment: e.detail.value
+      chooseIndex:index
     })
   },
-  save() {
-    var content = this.data.comment
-    if (content.length == 0) {
+  cancelClick(){
+    if (this.data.chooseIndex==null){
       wx.showModal({
         title: '提示',
-        content: '评论不能为空',
+        content: '请选择取消原因',
         showCancel: false,
-        success: function(res) {
+        success: function (res) {
           if (res.confirm) {
             console.log('用户点击确定')
           } else {
@@ -37,11 +60,24 @@ Page({
 
         }
       })
-    } else {
-      wx.navigateTo({
-        url: "../success/success"
+    }else{
+      this.setData({
+        cancelShow:true
       })
     }
+  },
+  thinkAbout(){
+    this.setData({
+      cancelShow: false
+    })
+  },
+  sure(e){
+    this.setData({
+      cancelShow: false
+    })
+    wx.navigateTo({
+      url: "../order/order?orderId=" + this.data.orderId +"&orderStatus=4"
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

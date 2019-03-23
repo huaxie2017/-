@@ -112,6 +112,7 @@
   box-sizing: border-box;
   padding: 42rpx 0 45rpx 48rpx;
   margin-bottom: 80rpx;
+  margin-top: 38rpx;
 }
 .infoName{
   font-size: 28rpx;

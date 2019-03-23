@@ -6,7 +6,7 @@
   </view> -->
   <!--订单显示-->
   <view class="orderContent">
-    <view class="orderOne" id="0" bindtap='linkTo'>
+    <view class="orderOne" id="1" bindtap='linkTo' data-status="1">
       <view class='timeStatus flex center'>
         <view class="flex_item1 time">2019-03-14 14:45:42</view>
         <view class="flex_item1 orderStatus">等待邮寄</view>
@@ -23,7 +23,7 @@
         </view>
       </view>
       <view class="footerBtn">
-        <text class="cancel">取消订单</text>
+        <text class="cancel" catchtap='cancelOrder' data-orderId="0">取消订单</text>
       </view>
     </view>
     <view class="orderOne">

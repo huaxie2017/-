@@ -33,66 +33,24 @@
   <view class="time">
     <text class="circle"></text>
     <text class='timeSet'>限时高价</text>
-    <text class="timeNum">03</text><text class='line'>:</text>
+    <!-- <text class="timeNum">03</text><text class='line'>:</text>
     <text class='timeNum m_l'>41</text><text class='line'>:</text>
-    <text class="timeNum m_l">20</text>
+    <text class="timeNum m_l">20</text> -->
   </view>
   <view class="swiper_box">
     <swiper class="swiper_phone" indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}"        duration="{{swiper.duration}}" indicator-color="{{swiper.indicatorColor}}" 
     circular="{{swiper.circular}}" display-multiple-items='3'>
-      <swiper-item>
+      <swiper-item wx:for="{{phoneList}}" wx:for-item="item" wx:key="{{index}}">
         <view class='phoneItem'>	
-          <image src='{{phoneOne}}' class="phoneOne"></image>
-          <view class="phoneTitle">华为P10</view>
+          <image src='{{item.url}}' class="phoneOne"></image>
+          <view class="phoneTitle">{{item.name}}</view>
           <view class="priceChange">
-           <text class="price_new">￥ 1128</text>
-           <text class="price_old">￥ 1500</text>
+           <text class="price_new">￥ {{item.min}}</text>
+           <text class="price_old">￥ {{item.max}}</text>
           </view>
           <view class="num_top">
            <image src="{{numBg}}" class="num_bg"></image>
-           <text class="numOne">NO1</text>
-          </view>
-        </view>    
-      </swiper-item>
-      <swiper-item>
-        <view class='phoneItem'>	
-          <image src='{{phoneOne}}' class="phoneOne"></image>
-          <view class="phoneTitle">华为P10</view>
-          <view class="priceChange">
-           <text class="price_new">￥ 1128</text>
-           <text class="price_old">￥ 1500</text>
-          </view>
-          <view class="num_top">
-           <image src="{{numBg}}" class="num_bg"></image>
-           <text class="numOne">NO2</text>
-          </view>
-        </view>    
-      </swiper-item>
-      <swiper-item>
-        <view class='phoneItem'>	
-          <image src='{{phoneOne}}' class="phoneOne"></image>
-          <view class="phoneTitle">华为P10</view>
-          <view class="priceChange">
-           <text class="price_new">￥ 1128</text>
-           <text class="price_old">￥ 1500</text>
-          </view>
-          <view class="num_top">
-           <image src="{{numBg}}" class="num_bg"></image>
-           <text class="numOne">NO3</text>
-          </view>
-        </view>    
-      </swiper-item>
-      <swiper-item>
-        <view class='phoneItem'>	
-          <image src='{{phoneOne}}' class="phoneOne"></image>
-          <view class="phoneTitle">华为P10</view>
-          <view class="priceChange">
-           <text class="price_new">￥ 1128</text>
-           <text class="price_old">￥ 1500</text>
-          </view>
-          <view class="num_top">
-           <image src="{{numBg}}" class="num_bg"></image>
-           <text class="numOne">NO4</text>
+           <text class="numOne">NO{{index+1}}</text>
           </view>
         </view>    
       </swiper-item>

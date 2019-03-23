@@ -19,6 +19,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     commentList:[],
+    phoneList:[],
     swiper: {
       indicatorDots: false,
       autoplay: false,
@@ -71,6 +72,16 @@ Page({
       success: function (res) {
         that.setData({
           commentList:res.data.data
+        })
+      }
+    })
+    wx.request({
+      url: app.globalData.Api + '/rdata/getHighPrice',
+      data: {},
+      header: { 'Content-Type': 'application/json' },
+      success: function (res) {
+        that.setData({
+          phoneList: res.data.data
         })
       }
     })

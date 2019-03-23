@@ -4,7 +4,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orderId: ''
+    orderId: '',
+    orderStatus: null //1 下单完成 2 质检中 3 订单完成 4 订单取消
   },
 
   /**
@@ -13,7 +14,8 @@ Page({
   onLoad: function(options) {
     console.log(options)
     this.setData({
-      orderId: options.orderId
+      orderId: options.orderId,
+      orderStatus: options.orderStatus
     })
   },
   calling: function() {
@@ -36,6 +38,11 @@ Page({
 
     })
 
+  },
+  cancelOrder(){
+    wx.navigateTo({
+      url: '../../pages/cancelOrder/cancelOrder?orderId=' + this.data.orderId
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

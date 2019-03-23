@@ -15,12 +15,19 @@ Page({
   },
   linkTo(e){
     wx.navigateTo({
-      url: "../order/order?orderId=" + e.currentTarget.id
+      url: "../order/order?orderId=" + e.currentTarget.id + "&orderStatus=" + e.currentTarget.dataset.status
     })
   },
   ToComment(e){
     wx.navigateTo({
       url: "../comment/comment?orderId=" + e.currentTarget.id
+    })
+  },
+  cancelOrder(e){
+    console.log(e)
+    var orderId = e.currentTarget.dataset.orderid;
+    wx.navigateTo({
+      url: '../../pages/cancelOrder/cancelOrder?orderId=' + orderId
     })
   },
   /**

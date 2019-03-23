@@ -13,29 +13,10 @@ Page({
   onLoad: function (options) {
     
   },
-  calling: function () {
-
-    wx.makePhoneCall({
-
-      phoneNumber: '0755-83259225',
-
-      success: function () {
-
-        console.log("拨打电话成功！")
-
-      },
-
-      fail: function () {
-
-        console.log("拨打电话失败！")
-
-      }
-
+  backIndex(){
+    wx.reLaunch({     
+      url: '/pages/index/index'
     })
-
-  },
-  looOrder(){
-
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,0 +1,147 @@
+.cancelOrder {
+  width: 100%;
+  padding-top: 54rpx;
+}
+
+.cancelContent {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 26rpx;
+}
+
+.cancelReason {
+  width: 100%;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4rpx 38rpx 0px rgba(60, 60, 58, 0.1);
+  border-radius: 20rpx;
+}
+
+.reason1 {
+  width: 100%;
+  height: 86rpx;
+  line-height: 86rpx;
+  padding-left: 36rpx;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+}
+
+.noChoose {
+  display: inline-block;
+  width: 54rpx;
+  height: 54rpx;
+  vertical-align: middle;
+  margin-right: 24rpx;
+}
+
+.Choose {
+  display: inline-block;
+  width: 54rpx;
+  height: 54rpx;
+  vertical-align: middle;
+  margin-right: 24rpx;
+}
+
+.reason_title {
+  font-size: 30rpx;
+  color: #0b0b0b;
+  font-weight: 500;
+}
+
+.cancelBtn {
+  width: 100%;
+  height: 89rpx;
+  background: rgba(255, 228, 1, 1);
+  box-shadow: 0px 18rpx 22rpx 0px rgba(255, 210, 1, 0.3);
+  border-radius: 45rpx;
+  font-size: 34rpx;
+  color: #0b0b0b;
+  font-weight: 800;
+  text-align: center;
+  line-height: 89rpx;
+  margin-top: 440rpx;
+}
+
+.pop_x {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.popContent {
+  width: 574rpx;
+  height: 328rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 20rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 90rpx 31rpx 28rpx 35rpx;
+}
+
+.konw {
+  text-align: center;
+  font-size: 30rpx;
+  color: #0b0b0b;
+  font-weight: 500;
+  line-height: 48rpx;
+}
+
+.pricrDowm {
+  text-align: center;
+  font-size: 30rpx;
+  color: #0b0b0b;
+  font-weight: 500;
+  line-height: 48rpx;
+}
+
+.price {
+  color: #ff5534;
+}
+
+.btnBox {
+  width: 100%;
+  margin-top: 44rpx;
+}
+
+.btn_l {
+  text-align: left;
+}
+
+.btn_r {
+  text-align: right;
+}
+
+.giveUp {
+  width: 243rpx;
+  height: 82rpx;
+  display: inline-block;
+  background: rgba(238, 238, 238, 1);
+  border-radius: 41rpx;
+  font-size: 30rpx;
+  color: #0b0b0b;
+  text-align: center;
+  line-height: 82rpx;
+  font-weight: 500;
+}
+
+.sure {
+  width: 243rpx;
+  height: 82rpx;
+  display: inline-block;
+  background: rgba(255, 228, 1, 1);
+  border-radius: 41rpx;
+  font-size: 30rpx;
+  color: #0b0b0b;
+  text-align: center;
+  line-height: 82rpx;
+  font-weight: 500;
+}

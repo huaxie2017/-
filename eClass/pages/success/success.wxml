@@ -1,0 +1,12 @@
+<view class="success">
+ <view>
+  <image src="../../images/commentS.jpg" class="successImg"></image>
+ </view>
+ <view class="commentText">
+    <text>评价成功</text>
+ </view>
+ <view class="commentTopic">
+    <text>您的意见，就是我们不断进步的动力~</text>
+ </view>
+ <view class="back" bindtap='backIndex'>返回首页</view>
+</view>

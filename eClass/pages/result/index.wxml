@@ -42,6 +42,6 @@
       <view>工作人员将会致电联系您</view>
       <view>回收成功，现场支付现金</view>
     </view>
-    <view class="lookOrder">查看订单</view>
+    <view class="lookOrder" bindtap='looOrder'>查看订单</view>
   </view>
 </view>
