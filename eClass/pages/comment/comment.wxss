@@ -81,7 +81,7 @@
   box-sizing: border-box;
   font-size: 28rpx;
   color: #0b0b0b;
-  text-indent: 30rpx;
+  padding-left: 30rpx;
   border-radius: 20rpx;
 }
 .save{

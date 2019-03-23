@@ -87,9 +87,9 @@
         </view>
       </view>
     </view>
-    <view class="comment_more">
+    <!-- <view class="comment_more">
       <text>查看全部评价</text><image src="../../images/moreIcon.jpg" class='moreIcon'></image>
-    </view>
+    </view> -->
   </view>
   <view class='comment'>
      流程与保障

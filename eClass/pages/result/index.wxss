@@ -27,7 +27,7 @@
   display: inline-block;
   border-radius: 50%;
   text-align: center;
-  line-height: 42rpx;
+  line-height: 44rpx;
   background: #0b0b0b;
   color: #fff;
   font-size: 12px;
@@ -39,7 +39,7 @@
 .resultInfo{
   width: 100%;
   box-sizing: border-box;
-  padding: 0 25rpx 0 28rpx;
+  padding: 0 25rpx 80rpx 28rpx;
   margin-top: 30rpx;
 }
 .topic{
@@ -133,6 +133,5 @@
   text-align: center;
   font-size: 34rpx;
   color: #0b0b0b;
-  margin-bottom: 80rpx;
   font-weight: 800;
 }
