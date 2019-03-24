@@ -131,4 +131,9 @@
   <view class='slogin'>
     正品自营 | 任意品牌 | 极速回收 | 私隐保障
   </view>
+  <view class="isLogin" wx:if="{{!hasUserInfo&&canIUse}}">
+     <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo" class="getUserBtn">
+      获取用户信息
+     </button>
+  </view>
 </view>

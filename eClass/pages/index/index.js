@@ -4,7 +4,8 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    hasUserInfo: false,
     userInfo: {},
     banner:'../../images/banner.jpg',
     search:'../../images/search.png',
@@ -16,8 +17,6 @@ Page({
     numBg:"../../images/left_top.jpg",
     messageIcon:'../../images/messageIcon.png',
     peopleImg:'../../images/avaer.png',
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     commentList:[],
     phoneList:[],
     swiper: {
@@ -114,6 +113,10 @@ Page({
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
+    app.globalData.encryptedData = e.detail.encryptedData
+    app.globalData.rawData = e.detail.rawData
+    app.globalData.signature = e.detail.signature
+    app.globalData.iv = e.detail.iv
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
