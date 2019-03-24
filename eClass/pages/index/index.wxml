@@ -64,7 +64,15 @@
       <image src="{{messageIcon}}" class='message_icon'></image>
     </view>
     <view class="flex_item1 who">
-      深圳林先生 IPhone X 成功回收 进账￥3899
+      <view class="who_ul">
+        <swiper class="swiperitem" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" vertical="true" circular="true">
+        <block wx:for="{{winnersbox}}" wx:for-item="item" wx:key="index">
+          <swiper-item class="swiper_text">
+            <view class="who_li">{{item.text}}</view>
+          </swiper-item>
+        </block>
+      </swiper>
+      </view>
     </view>
   </view>
   <view class='comment'>

@@ -22,14 +22,24 @@ Page({
     phoneList:[],
     swiper: {
       indicatorDots: false,
-      autoplay: false,
+      autoplay: true,
       interval: 3000,
       duration: 1000,
      // indicatorColor: "rgba(0,0,0,0.6)",
       //indicatorActive: "#fff",
-      circular: false,
+      circular: true,
      // imgUrl: ["../../image/banner.jpg", "../../image/banner.jpg"]
     },
+    marqueeDistance: 0,//滚动距离
+    maxscrollheight: '',//最大高度
+    liheight: '66',//一个li的高度
+    winnersbox:[
+      { text:'深圳林先生 IPhone X 成功回收 进账￥3899'},
+      { text: '深圳林先生 IPhone X 成功回收 进账￥3899' },
+      { text: '深圳林先生 IPhone X 成功回收 进账￥3899' },
+      { text: '深圳林先生 IPhone X 成功回收 进账￥3899' },
+      { text: '深圳林先生 IPhone X 成功回收 进账￥3899' }
+    ]
   },
   //事件处理函数
   bindViewTap: function() {
@@ -86,6 +96,21 @@ Page({
       }
     })
   },
+  onShow: function () {
+    wx.request({
+      url: 'https://efix.ewiyi.com/api/default/wxProgramLogin',
+      data: {
+        code: app.globalData.code,
+        rawData: app.globalData.rawData,
+        encryptedData: app.globalData.encryptedData,
+        signature: app.globalData.signature,
+        iv:app.globalData.iv
+      },
+      success: function (res) {
+        console.log(res)
+      }
+    })
+  },
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
@@ -93,5 +118,5 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
 })

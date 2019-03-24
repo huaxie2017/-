@@ -5,9 +5,9 @@
   </view>
   <view class="time">
     <text class="title">限时保价</text>
-    <text class="timeNum">03</text><text class='line'>:</text>
-    <text class='timeNum m_l'>41</text><text class='line'>:</text>
-    <text class="timeNum m_l">20</text>
+    <text class="timeNum">{{countDownHour}}</text><text class='line'>:</text>
+    <text class='timeNum m_l'>{{countDownMinute}}</text><text class='line'>:</text>
+    <text class="timeNum m_l">{{countDownSecond}}</text>
   </view>
   <view class="resultInfo">
     <view class="topic">
