@@ -106,7 +106,8 @@ Page({
         iv:app.globalData.iv
       },
       success: function (res) {
-        console.log(res)
+        console.log(res.data.token)
+        app.globalData.token=res.data.token
       }
     })
   },
