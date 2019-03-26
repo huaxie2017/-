@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "regionModule": "../../components/regionModule/regionModule",
+    "dateModule": "../../components/dateModule/dateModule",
+    "protocolModule": "../../components/protocolModule/protocolModule"
+  },
+  "navigationBarTitleText": "填写下单信息"
+}

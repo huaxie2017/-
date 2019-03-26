@@ -1,0 +1,25 @@
+<view class='productList-container'>
+  <view class='product-search'>
+    <icon type='search' size='14' color='#666666' style='line-height: 1;'></icon>
+    <input class='search-input' placeholder='搜索您要卖的品牌、机型' val='{{}}'></input>
+  </view>
+  <view class='main'>
+    <view class='search-header'>  
+      <block wx:for='{{selecteModule}}' wx:for-item='item'>
+<view class='search-type {{item.selected ? "search-selected" : ""}}' data-index='{{index}}' data-item="{{item.selected}}" bindtap='selectType'>{{item.content}}</view>
+      </block>
+    </view>
+    <view class='search-body'>
+      <scroll-view class='search-label' scroll-y>
+        <block wx:for='{{brandModule}}' wx:for-item='item' wx:key='id'>
+          <view class='search-label-item' bindtap='chooseBrand' data-id='{{item.id}}'>{{item.name}}</view>
+        </block>
+      </scroll-view>
+      <scroll-view class='search-results' scroll-y>
+        <block wx:for='{{versionModule}}' wx:key='id'>
+          <view class='search-result-item' data-item='{{item}}' bindtap='goValuation'>{{item.name}}</view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+</view>

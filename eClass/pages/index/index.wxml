@@ -29,7 +29,7 @@
       <image src='{{recycle_pad}}' class="recycle_item"></image>
     </view>
   </view>
-  <view class="free_help">免费估价</view>
+  <view class="free_help" bindtap='free_help'>免费估价</view>
   <view class="time">
     <text class="circle"></text>
     <text class='timeSet'>限时高价</text>

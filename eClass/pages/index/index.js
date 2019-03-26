@@ -95,6 +95,11 @@ Page({
       }
     })
   },
+  free_help(){
+    wx.navigateTo({
+      url: '../productList/productList'
+    })
+  },
   onShow: function () {
     wx.request({
       url: 'https://efix.ewiyi.com/api/default/wxProgramLogin',

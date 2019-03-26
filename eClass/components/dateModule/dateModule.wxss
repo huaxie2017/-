@@ -1,0 +1,18 @@
+@import '../../styles/_wrapper.wxss';
+@import '../../app.wxss';
+.operate {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 30rpx;
+}
+.pick-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0b0b0b;
+  font-size: 28rpx;
+  line-height: 28rpx;
+}
+.picker-view-column {
+  text-align: center;
+}

@@ -1,0 +1,7 @@
+<view class='wrapper-container'>
+  <view class='mask' bindtap='toggleRegion'></view>
+  <view class='wrapper-middle-container'>
+    <image src='../../images/pad_check.png' class='tip-img' mode='widthFix'></image>
+    <image src='../../images/select_d.png' class='icon-close' bindtap='toggleTips'></image>
+  </view>
+</view>

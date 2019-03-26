@@ -1,0 +1,37 @@
+<view class='valuation'>
+  <!-- 进度条相关 -->
+  <view class='progress'>
+    <text class='progress-txt f_24 col-0b bold'>选择结果和实际情况相符，将以最快速度收款</text>
+    <view class='num'>
+      <text class='f_24 col-0b' decode='true'>{{hasSelectedNum}}&nbsp;</text>
+      <text class='f_24 col-89' decode='true'>/&nbsp;{{questionNum}}</text>
+    </view>
+    <view class='progress-rate' style='width: {{progressWidth}}rpx;'></view>
+  </view>
+  <scroll-view class='valuation-body' scroll-y>
+    <block wx:for='{{questionModule}}' wx:for-index='idx' wx:for-item='item'>
+      <view class='question-item'>
+        <view class='title'>
+          <text class='align-mid'>{{idx + 1}}.{{item.name}}</text>
+          <image src='../../images/messageIcon.png' class='icon-q marl-10 align-mid' bindtap='toggleTips'></image>
+        </view>
+        <view class='content'>
+          <block wx:for='{{item.detail}}' wx:for-item='detail'>
+            <view class='content-item'>
+              <text data-id='{{detail.id}}' data-idx='{{idx}}' class='{{item.selectId == detail.id ? "btn-select-s": "btn-select-d"}} btn-select' bindtap='chooseSize'></text>
+              <view>
+                <view>{{detail.name}}</view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+  <view hidden='{{!tipsShow}}'>
+    <tipModal bind:toggleTips='toggleTips'></tipModal>
+  </view>
+  <view class='valuation-submit'>
+    <button class='btn-submit f34 bold' bindtap='submit'>查看估价</button>
+  </view>
+</view>

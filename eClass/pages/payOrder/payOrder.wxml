@@ -1,0 +1,126 @@
+<view class='pay-order-container'>
+  <!-- 新闻轮播 -->
+  <view class='news'>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" vertical='{{vertical}}' circular='{{circular}}'>
+      <block wx:for="{{news}}" wx:key='{{index}}' wx:for-item='item'>
+        <swiper-item>
+          <view>{{item.content}}</view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!-- 订单信息 -->
+  <view class='order-detail'>
+    <view class='message'>
+      <text class='col-0b f28 right-auto'>行业均价：￥175</text>
+      <image src='../../images/messageIcon.png' class='icon-city fl-r'></image>
+      <text class='col-0b f24 marl-8'>深圳市</text>
+    </view>
+    <view class='price col-0b'>
+      <text class='f30'>￥</text>188
+    </view>
+    <view class='order-tips f24'>预计一周后下降50元</view>
+    <button class='renew col-0b f24'>重新估价</button>
+  </view>
+
+  <!-- 回收方式 -->
+  <view>
+    <view class='headline col-0b f36 bold'>选择回收方式</view>
+    <view class='recover-main'>
+      <view class='recover-tab flex f_28'>
+        <view class='tab tab-0 {{recoverType == 0 ? "tab-actived" : ""}}' data-type='0' bindtap='selectType'>快递回收(包邮)</view>
+        <view class='tab tab-1 {{recoverType == 1 ? "tab-actived" : ""}}' data-type='1' bindtap='selectType'>门店回收</view>
+        <view class='tab tab-1 {{recoverType == 2 ? "tab-actived" : ""}}' data-type='2' bindtap='selectType'>上门回收</view>
+      </view>
+      <view class='recover-form'>
+        <view class='recover-form-0' hidden='{{recoverType == 1 || recoverType == 2}}'>
+          <view class='flex between store-address'>
+            <text class='col-0b f_28 bold'>顺丰上门取件</text>
+            <view>
+              <image src='../../images/messageIcon.png' class='icon-remind'></image>
+              <text class='col-98 f_24'>免运费说明</text>
+            </view>
+          </view>
+          <view class='flex between store-address' bindtap='toggleRegion'>
+            <text class='col-0b f28'>{{regions.province.regionName}}{{regions.city.regionName}}{{regions.county.regionName}}</text>
+            <image class='icon-arrow' src='../../images/messageIcon.png'></image>
+          </view>
+          <view class='flex between store-address'>
+            <input placeholder='输入您的详细地址' type='text' placeholder-class='placeholder-def' class='wid100'></input>
+          </view>
+          <view class='flex between store-address'>
+            <input placeholder='输入寄件人真实姓名' type='text' placeholder-class='placeholder-def' class='wid100'></input>
+          </view>
+          <view class='flex between store-address'>
+            <input placeholder='输入联系电话' type='number' placeholder-class='placeholder-def' class='wid100'></input>
+          </view>
+          <view class='flex between store-address' data-types='0' bindtap='toggleDate'>
+            <text class='col-0b f28'>预约时间 {{date0}}
+            </text>
+            <image class='icon-arrow' src='../../images/messageIcon.png'></image>
+          </view>
+        </view>
+        <view class='recover-form-1' hidden='{{recoverType == 2 || recoverType == 0}}'>
+          <view class='flex between store-address'>
+            <text class='col-0b f_28 bold'>e修大师福田总部</text>
+            <text class='col-98 f_24'>免运费说明</text>
+          </view>
+          <view class='flex between store-address align-start'>
+            <view>
+              <text class='col-0b f_28'>深圳市福田区上步工业区101栋二楼E16</text>
+              <view>
+                <image src='../../images/messageIcon.png' class='icon-warning'></image>
+                <text class='col-warning f24'>您所在的区域不在门店回收服务范围内</text>
+              </view>
+            </view>
+            <image src='../../images/messageIcon.png' class='icon-tel'></image>
+          </view>
+          <view class='flex between store-address' data-types='1' bindtap='toggleDate'>
+            <text class='col-0b f28'>预约时间 {{date0}}</text>
+            <image class='icon-arrow' src='../../images/messageIcon.png'></image>
+          </view>
+        </view>
+        <view class='recover-form-2' hidden='{{recoverType == 0 || recoverType == 1}}'>
+          <view class='flex between store-address'>
+            <text class='col-0b f_28 bold'>上门交易</text>
+          </view>
+          <view class='flex between store-address' bindtap='toggleRegion'>
+            <text class='col-0b f_28 bold'>{{regions.province.regionName}}{{regions.city.regionName}}{{regions.county.regionName}}</text>
+            <image class='icon-arrow' src='../../images/messageIcon.png'></image>
+          </view>
+          <view class='flex between store-address'>
+            <input placeholder='输入您的详细地址' type='text' placeholder-class='placeholder-def' class='wid100'></input>
+          </view>
+          <view class='flex between store-address'>
+            <input placeholder='输入寄件人真实姓名' type='text' placeholder-class='placeholder-def' class='wid100'></input>
+          </view>
+          <view class='flex between store-address'>
+            <input placeholder='输入联系电话' type='text' placeholder-class='placeholder-def' class='wid100'></input>
+          </view>
+          <view class='flex between store-address' data-types='2' bindtap='toggleDate'>
+            <text class='col-0b f28'>预约时间 {{date0}}</text>
+            <image class='icon-arrow' src='../../images/messageIcon.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view class='agreement col-98 f24'>
+      <image src='../../images/select_s.jpg' class='icon-agree align-midd'></image>
+      我已阅读并同意<text class='col-blue' data-types='0' bindtap='toggleProtocol'>用户协议</text>和<text class='col-blue' data-type='1' bindtap='toggleProtocol'>隐私协议</text>,并且确认机器来源合法
+    </view>
+    <!-- 省市区三级联动 -->
+    <view hidden='{{!pickShow}}'>
+       <regionModule bind:toggleRegion='toggleRegion'></regionModule>
+    </view>
+    <view hidden='{{!dateShow}}'>
+      <dateModule bind:toggleDate='toggleDate' recoverTypes='{{recoverTypes}}'></dateModule>
+    </view>
+    <view hidden='{{!protocolShow}}'>
+      <protocolModule info='{{protocolContent}}' bind:toggleProtocol='toggleProtocol'></protocolModule>
+    </view> 
+    <button class='btn-submit bold'>提交订单</button>
+  </view>
+</view>

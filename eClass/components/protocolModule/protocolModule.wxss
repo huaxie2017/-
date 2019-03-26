@@ -1,0 +1,41 @@
+@import '../../styles/_wrapper.wxss';
+.main {
+  border-top-color: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+.operate{
+  display: flex;
+  justify-content: flex-end;
+  padding: 26rpx 26rpx 0 0;
+}
+.icon-close {
+  display: block;
+  width: 36rpx;
+  height: 36rpx;
+}
+.title {
+  width: 100%;
+  position: relative;
+  padding-bottom: 15rpx;
+  text-align: center;
+}
+.title::after {
+  display: block;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -66rpx;
+  width: 132rpx;
+  height: 4rpx;
+  background-color: #FFE401;
+}
+.content {
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  height: 555rpx;
+  padding: 36rpx 82rpx;
+  color: #0b0b0b;
+  font-size: 28rpx;
+}

@@ -7,7 +7,10 @@
     "pages/myOrder/myOrder",
     "pages/comment/comment",
     "pages/success/success",
-    "pages/cancelOrder/cancelOrder"
+    "pages/cancelOrder/cancelOrder",
+	  "pages/payOrder/payOrder",
+    "pages/productValuation/productValuation",
+    "pages/productList/productList"
   ],
   "window": {
     "backgroundTextStyle": "light",

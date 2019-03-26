@@ -1,0 +1,17 @@
+<view class='wrapper-container'>
+  <view class='mask' bindtap='toggleDate'></view>
+  <view class='wrapper-main-container'>
+    <view class='operate'>
+      <text class='col-98 f_30' bindtap='toggleDate'>取消</text>
+      <text class='col-green f_30' bindtap='submit'>确定</text>
+    </view>
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" bindchange="bindChange">
+      <picker-view-column class='c_c'>
+        <view wx:for="{{dates}}" wx:key='index' class='pick-item'>{{item}}</view>
+      </picker-view-column>
+      <picker-view-column class='c_c'>
+        <view wx:for="{{times}}" wx:key='index' class='pick-item'>{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>
