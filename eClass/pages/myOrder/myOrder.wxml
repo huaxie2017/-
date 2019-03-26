@@ -1,24 +1,24 @@
 <view class="myOrder">
   <!--没有订单显示-->
-  <!-- <view class="noOrder">
+  <view class="noOrder" wx:if="{{noOrder}}">
      <image src="../../images/orderOut.jpg" class="noImg"></image>
      <view class='noText'>您还没有回收订单噢~赶紧出手吧</view>
-  </view> -->
+  </view>
   <!--订单显示-->
-  <view class="orderContent">
-    <view class="orderOne" id="1" bindtap='linkTo' data-status="1">
+  <view class="orderContent" wx:if="{{!noOrder}}">
+    <view class="orderOne" data-orderId="{{item.order_id}}" bindtap='linkTo' data-status="1" wx:for="{{orderList}}" wx:for-item="item" wx:key="index">
       <view class='timeStatus flex center'>
-        <view class="flex_item1 time">2019-03-14 14:45:42</view>
-        <view class="flex_item1 orderStatus">等待邮寄</view>
+        <view class="flex_item1 time">{{item.created}}</view>
+        <view class="flex_item1 orderStatus">{{item.status_str}}</view>
       </view>
       <view class="shopMessage flex center">
-        <image src="../../images/phone.png" class="shopImg"></image>
+        <image src="{{item.version_img}}" class="shopImg"></image>
         <view class="shopInfo flex_item1">
-          <view class="shopName">苹果 iPhone7</view>
+          <view class="shopName">{{item.version_name}}</view>
           <view class="way">邮寄回收</view>
           <view>
             <text class="shopTitle">预估价：</text>
-            <text class="price">￥188</text>
+            <text class="price">￥ {{item.price}}</text>
           </view>
         </view>
       </view>
@@ -26,10 +26,10 @@
         <text class="cancel" catchtap='cancelOrder' data-orderId="0">取消订单</text>
       </view>
     </view>
-    <view class="orderOne">
+    <view class="orderOne" bindtap='linkTo' data-status="2" id="2" style='display:none'>
       <view class='timeStatus flex center'>
         <view class="flex_item1 time">2019-03-14 14:45:42</view>
-        <view class="flex_item1 orderStatus">等待邮寄</view>
+        <view class="flex_item1 orderStatus">待师傅上门检测</view>
       </view>
       <view class="shopMessage flex center">
         <image src="../../images/phone.png" class="shopImg"></image>
@@ -46,7 +46,7 @@
         <text class="cancel">取消订单</text>
       </view>
     </view>
-    <view class="orderOne">
+    <view class="orderOne" bindtap='linkTo' data-status="3" id="3" style='display:none'>
       <view class='timeStatus flex center'>
         <view class="flex_item1 time">2019-03-14 14:45:42</view>
         <!-- <view class="flex_item1 orderStatus">等待邮寄</view> -->
@@ -65,7 +65,7 @@
       </view>
       <view class="footerBtn">
         <!-- <text class="cancel">取消订单</text> -->
-        <text class="comment" id="1" bindtap='ToComment'>评价</text>
+        <text class="comment" data-orderId="1" bindtap='ToComment'>评价</text>
       </view>
     </view>
   </view>

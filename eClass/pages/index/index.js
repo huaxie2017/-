@@ -100,6 +100,11 @@ Page({
       url: '../productList/productList'
     })
   },
+  goList(){
+    wx.navigateTo({
+      url: '../productList/productList'
+    })
+  },
   onShow: function () {
     wx.request({
       url: 'https://efix.ewiyi.com/api/default/wxProgramLogin',
@@ -111,8 +116,7 @@ Page({
         iv:app.globalData.iv
       },
       success: function (res) {
-        console.log(res.data.token)
-        app.globalData.token=res.data.token
+        app.globalData.token = res.data.data.token
       }
     })
   },

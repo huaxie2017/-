@@ -48,36 +48,44 @@
         回收机器已收到，待检测过后，客服会电话联系确定 最终估价，请保持电话畅通
       </view>
     </view>
-    <!--下单完成显示-->
-    <view class="address" wx:if="{{orderStatus==1||orderStatus==4}}">
+    <!--下单完成显示 邮寄地址-->
+    <!-- <view class="address" wx:if="{{orderStatus==1||orderStatus==4}}">
       <view class="common_title">邮寄地址</view>
       <view class="add">深圳市福田区上步工业区101栋二楼E16e修大师(收)</view>
       <view class="tel">电话：
         <text bindtap='calling'>0755-83259225</text>
       </view>
+    </view> -->
+    <!--下单完成显示 上门地址-->
+    <view class="address" wx:if="{{orderStatus==1||orderStatus==4}}">
+      <view class="common_title">上门地址</view>
+      <view class="add">{{orderDetail.mail_company}}</view>
+      <view class="tel">电话：
+        <text bindtap='calling'>{{orderDetail.mobile}}</text>
+      </view>
     </view>
     <view class="shopInfo" wx:if="{{orderStatus==1|| orderStatus==2||orderStatus==4}}">
       <view class="common_title">交易信息</view>
       <view class="flex center shopMessage">
-        <image src='../../images/phone.png' class="phone"></image>
+        <image src='{{orderDetail.version_img}}' class="phone"></image>
         <view class="message_p flex_item1">
-          <view class="phoneName">iPhone 7</view>
+          <view class="phoneName">{{orderDetail.version_name}}</view>
           <view class="source">购买渠道：香港行货</view>
         </view>
       </view>
       <view class="price flex center">
         <text class="flex_item1 name">预估价</text>
-        <text class="flex_item1 money">￥188</text>
+        <text class="flex_item1 money">￥{{orderDetail.price}}</text>
       </view>
     </view>
     <view class="addressInfo" wx:if="{{orderStatus==1|| orderStatus==2||orderStatus==4}}">
       <view class="orderNum">
         <text class="infoName">订单编号：</text>
-        <text class="infoM">162562</text>
+        <text class="infoM">{{orderDetail.order_id}}</text>
       </view>
       <view class="orderNum">
         <text class="infoName">下单时间：</text>
-        <text class="infoM">2019-03-15 14:42:22</text>
+        <text class="infoM">{{orderDetail.created}}</text>
       </view>
       <view class="orderNum">
         <text class="infoName">回收方式：</text>
@@ -85,15 +93,15 @@
       </view>
       <view class="orderNum">
         <text class="infoName">您的姓名：</text>
-        <text class="infoM">老王</text>
+        <text class="infoM">{{orderDetail.username}}</text>
       </view>
       <view class="orderNum">
         <text class="infoName">您的电话：</text>
-        <text class="infoM">125689725</text>
+        <text class="infoM">{{orderDetail.mobile}}</text>
       </view>
       <view class="orderNum">
         <text class="infoName">预约时间：</text>
-        <text class="infoM">03-16 9:00-10:00</text>
+        <text class="infoM">{{orderDetail.service_time}}</text>
       </view>
       <view class="orderNum">
         <text class="infoName">收款方式：</text>

@@ -1,3 +1,31 @@
+const app = getApp()
+import { API, REQUEST } from '../../utils/index.js'
+let url = app.globalData.Api + "/rdata/orderDetail"
+const methods = {
+  getOrderDetail(id) {
+    wx.showLoading({
+      title: '加载中'
+    })
+    let that = this
+    REQUEST.get(url, {
+      data: {
+        token: app.globalData.token,
+        order_id:id
+      }
+    })
+      .then((res) => {
+        const { status, data } = res.data
+        if (status === 'success') {
+          that.setData({
+            orderDetail: data,
+          })
+          wx.hideLoading()
+        } else {
+          wx.hideLoading()
+        }
+      })
+  }
+}
 Page({
 
   /**
@@ -5,9 +33,10 @@ Page({
    */
   data: {
     orderId: '',
-    orderStatus: null //1 下单完成 2 质检中 3 订单完成 4 订单取消
+    orderStatus: null, //1 下单完成 2 质检中 3 订单完成 4 订单取消
+    orderDetail:{}
   },
-
+  ...methods,
   /**
    * 生命周期函数--监听页面加载
    */
@@ -17,6 +46,7 @@ Page({
       orderId: options.orderId,
       orderStatus: options.orderStatus
     })
+    this.getOrderDetail(options.orderId)
   },
   calling: function() {
 

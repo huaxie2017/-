@@ -10,6 +10,7 @@ App({
     wx.login({
       success: res => {
         if(res.code){
+          console.log(res.code)
           this.globalData.code=res.code
         }else{
           console.log('登录失败！' + res.errMsg)

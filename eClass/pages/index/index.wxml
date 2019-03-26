@@ -2,7 +2,7 @@
 <view class="indexPage">
   <view class="banner">
      <image src="{{banner}}" class='banner_img'></image>
-     <view class="inputBox">
+     <view class="inputBox" bindtap='goList'>
         <image src="{{search}}" class='searchIcon'></image><text class="title">输入您想要回收的机型名称</text>
      </view>
   </view>
@@ -40,7 +40,7 @@
   <view class="swiper_box">
     <swiper class="swiper_phone" indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}"        duration="{{swiper.duration}}" indicator-color="{{swiper.indicatorColor}}" 
     circular="{{swiper.circular}}" display-multiple-items='3'>
-      <swiper-item wx:for="{{phoneList}}" wx:for-item="item" wx:key="{{index}}">
+      <swiper-item wx:for="{{phoneList}}" wx:for-item="item" wx:key="{{index}}" class="phone_swiper">
         <view class='phoneItem'>	
           <image src='{{item.url}}' class="phoneOne"></image>
           <view class="phoneTitle">{{item.name}}</view>
