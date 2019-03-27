@@ -4,7 +4,7 @@
       <view class="reason1" wx:for="{{reasonList}}" wx:for-item="item" wx:key="index" data-index="{{index}}" bindtap='chooseReason'>
         <image src="../../images/select_d.png" class="noChoose" wx:if="{{chooseIndex!=index}}"></image>
         <image src="../../images/select_s.jpg" class="Choose" wx:if="{{chooseIndex==index}}"></image>
-        <text class="reason_title">{{item.reason}}</text>
+        <text class="reason_title">{{item}}</text>
       </view>
     </view>
     <view class="cancelBtn" bindtap='cancelClick'>残忍取消</view>
@@ -13,7 +13,7 @@
   <view class="pop_x" wx:if="{{cancelShow==true}}">
     <view class="popContent">
       <view class="konw">亲，确定要取消订单吗？</view>
-      <view class="pricrDowm">一周后再将<text class="price">￥129</text>，建议您赶紧出手</view>
+      <!-- <view class="pricrDowm">一周后再将<text class="price">￥129</text>，建议您赶紧出手</view> -->
       <view class="flex center btnBox">
         <view class="flex_item1 btn_l">
           <text class="giveUp" bindtap='thinkAbout'>我再想想</text>

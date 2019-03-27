@@ -1,5 +1,6 @@
 // pages/productList/productList.js
 import { API, REQUEST } from '../../utils/index.js'
+console.log(API)
 const app = getApp()
 const methods = {
   selectType (e) { // 选择手机/平板类型
@@ -22,7 +23,8 @@ const methods = {
       const { status, data } = res.data
       if (status === 'success') {
         this.setData({
-          brandModule: data
+          brandModule: data,
+          'brand_id': data[0].id
         }, () => {
           this.chooseBrand(data[0].id)
         })
@@ -36,13 +38,15 @@ const methods = {
     let that = this
     REQUEST.get(API.getVersionById, {
       data: {
-        'brand_id': e == that.data.brandModule[0].id ? that.data.brandModule[0].id : e.currentTarget.dataset.id
+        'brand_id': e == that.data.brandModule[0].id ?  that.data.brandModule[0].id : e.currentTarget.dataset.id
       }
     }).then((res) => {
       const { status, data } = res.data
       if (status === 'success') {
         this.setData({
-          versionModule: data
+          versionModule: data,
+          'brand_id': e == that.data.brandModule[0].id ? that.data.brandModule[0].id : e.currentTarget.dataset.id,
+          scrollTop: 0
         })
         wx.hideLoading()
       } else {
@@ -75,7 +79,8 @@ Page({
       }
     ],
     brandModule: [],
-    versionModule: []
+    versionModule: [],
+    scrollTop: 0
   },
   ...methods,
   /**

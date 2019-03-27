@@ -46,6 +46,26 @@ Page({
       url: '../logs/logs'
     })
   },
+  freeHelp: function () {
+    wx.switchTab({
+      url: '../productList/productList'
+    })
+  },
+  goList: function () {
+    wx.switchTab({
+      url: '../productList/productList'
+    })
+  },
+  salePhone(){
+    wx.switchTab({
+      url: '../productList/productList?index=0'
+    })
+  },
+  salePad() {
+    wx.switchTab({
+      url: '../productList/productList?index=1'
+    })
+  },
   onLoad: function () {
     var that = this
     if (app.globalData.userInfo) {
@@ -95,28 +115,28 @@ Page({
       }
     })
   },
-  free_help(){
-    wx.navigateTo({
-      url: '../productList/productList'
-    })
-  },
-  goList(){
-    wx.navigateTo({
-      url: '../productList/productList'
-    })
-  },
   onShow: function () {
-    wx.request({
-      url: 'https://efix.ewiyi.com/api/default/wxProgramLogin',
-      data: {
-        code: app.globalData.code,
-        rawData: app.globalData.rawData,
-        encryptedData: app.globalData.encryptedData,
-        signature: app.globalData.signature,
-        iv:app.globalData.iv
-      },
-      success: function (res) {
-        app.globalData.token = res.data.data.token
+    wx.login({
+      success: res => {
+        if (res.code) {
+          app.globalData.code = res.code
+          wx.request({
+            url: 'https://efix.ewiyi.com/api/default/wxProgramLogin',
+            data: {
+              code: app.globalData.code,
+              rawData: app.globalData.rawData,
+              encryptedData: app.globalData.encryptedData,
+              signature: app.globalData.signature,
+              iv: app.globalData.iv
+            },
+            success: function (res) {
+              wx.setStorageSync('token', res.data.data.token)
+              app.globalData.token = res.data.data.token
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
       }
     })
   },

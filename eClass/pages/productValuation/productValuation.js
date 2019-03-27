@@ -1,4 +1,5 @@
 import { API, REQUEST, TOAST } from '../../utils/index.js'
+let ids = []
 const methods = {
   init () { 
     let url = API.getDetail + '?version_id=' + this.data.id
@@ -27,7 +28,6 @@ const methods = {
     let questionModule = this.data.questionModule
     let r = 'questionModule[' +  e.currentTarget.dataset.idx + '].selected'
     let id = 'questionModule[' + e.currentTarget.dataset.idx + '].selectId'
-
     this.setData({
       [r]: this.data.questionModule[e.currentTarget.dataset.idx].selectId === e.currentTarget.dataset.id ? false : true,
       [id]: this.data.questionModule[e.currentTarget.dataset.idx].selectId === e.currentTarget.dataset.id ? null : e.currentTarget.dataset.id,
@@ -35,7 +35,6 @@ const methods = {
     let num = 0
     for (let i = 0; i < questionModule.length; i++) {
       if (questionModule[i].selected) {
-        console.log(questionModule[i])
         num = num + 1
       }
     }
@@ -49,6 +48,8 @@ const methods = {
       if (!this.data.questionModule[i].selected && !this.data.questionModule.selectId) {
         TOAST.warning({ title: `你还没有选中${this.data.questionModule[i].name}哦` });
         return false
+      } else {
+        ids.push(this.data.questionModule[i].selectId)
       }
     }
     return true
@@ -61,6 +62,10 @@ const methods = {
   submit () {
     if (this.fnVerifyForm()) {
       // core code
+     wx.setStorageSync('ids', ids.join(','))
+      wx.navigateTo({
+        url: '/pages/payOrder/payOrder?version_id=' + this.data.id
+      })
     }
   }
 }

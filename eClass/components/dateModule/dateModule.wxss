@@ -1,5 +1,5 @@
 @import '../../styles/_wrapper.wxss';
-@import '../../app.wxss';
+@import '../../styles/common.wxss';
 .operate {
   display: flex;
   justify-content: space-between;
@@ -13,6 +13,6 @@
   font-size: 28rpx;
   line-height: 28rpx;
 }
-.picker-view-column {
+.c_c {
   text-align: center;
 }

@@ -1,6 +1,6 @@
 <view class='pay-order-container'>
   <!-- 新闻轮播 -->
-  <view class='news'>
+  <!-- <view class='news'>
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" vertical='{{vertical}}' circular='{{circular}}'>
       <block wx:for="{{news}}" wx:key='{{index}}' wx:for-item='item'>
         <swiper-item>
@@ -8,7 +8,7 @@
         </swiper-item>
       </block>
     </swiper>
-  </view>
+  </view> -->
 
   <!-- 订单信息 -->
   <view class='order-detail'>
@@ -42,8 +42,8 @@
               <text class='col-98 f_24'>免运费说明</text>
             </view>
           </view>
-          <view class='flex between store-address' bindtap='toggleRegion'>
-            <text class='col-0b f28'>{{regions.province.regionName}}{{regions.city.regionName}}{{regions.county.regionName}}</text>
+          <view class='flex between store-address' data-isClose='false' bindtap='toggleRegion'>
+            <text class='col-0b f28'>{{regions.province.name}}{{regions.city.name}}{{regions.district.name}}</text>
             <image class='icon-arrow' src='../../images/messageIcon.png'></image>
           </view>
           <view class='flex between store-address'>
@@ -85,8 +85,8 @@
           <view class='flex between store-address'>
             <text class='col-0b f_28 bold'>上门交易</text>
           </view>
-          <view class='flex between store-address' bindtap='toggleRegion'>
-            <text class='col-0b f_28 bold'>{{regions.province.regionName}}{{regions.city.regionName}}{{regions.county.regionName}}</text>
+          <view class='flex between store-address' data-isClose='false' bindtap='toggleRegion'>
+            <text class='col-0b f_28 bold'>{{regions.province.name}}{{regions.city.name}}{{regions.district.name}}</text>
             <image class='icon-arrow' src='../../images/messageIcon.png'></image>
           </view>
           <view class='flex between store-address'>
@@ -108,12 +108,12 @@
   </view>
   <view>
     <view class='agreement col-98 f24'>
-      <image src='../../images/select_s.jpg' class='icon-agree align-midd'></image>
+      <text class='btn-select {{isAgreed ? "btn-select-s" : "btn-select-d"}}' bindtap='agree'></text>
       我已阅读并同意<text class='col-blue' data-types='0' bindtap='toggleProtocol'>用户协议</text>和<text class='col-blue' data-type='1' bindtap='toggleProtocol'>隐私协议</text>,并且确认机器来源合法
     </view>
     <!-- 省市区三级联动 -->
     <view hidden='{{!pickShow}}'>
-       <regionModule bind:toggleRegion='toggleRegion'></regionModule>
+       <regionModule bind:toggleRegion='toggleRegion' regions='{{regions}}'></regionModule>
     </view>
     <view hidden='{{!dateShow}}'>
       <dateModule bind:toggleDate='toggleDate' recoverTypes='{{recoverTypes}}'></dateModule>
@@ -121,6 +121,6 @@
     <view hidden='{{!protocolShow}}'>
       <protocolModule info='{{protocolContent}}' bind:toggleProtocol='toggleProtocol'></protocolModule>
     </view> 
-    <button class='btn-submit bold'>提交订单</button>
+    <button class='btn-submit bold' bindtap='submit'>提交订单</button>
   </view>
 </view>

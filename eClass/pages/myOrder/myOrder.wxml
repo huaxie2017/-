@@ -6,7 +6,7 @@
   </view>
   <!--订单显示-->
   <view class="orderContent" wx:if="{{!noOrder}}">
-    <view class="orderOne" data-orderId="{{item.order_id}}" bindtap='linkTo' data-status="1" wx:for="{{orderList}}" wx:for-item="item" wx:key="index">
+    <view class="orderOne" data-orderId="{{item.order_id}}" bindtap='linkTo' data-type='{{item.type}}' data-status="{{item.status}}" wx:for="{{orderList}}" wx:for-item="item" wx:key="index">
       <view class='timeStatus flex center'>
         <view class="flex_item1 time">{{item.created}}</view>
         <view class="flex_item1 orderStatus">{{item.status_str}}</view>
@@ -15,7 +15,7 @@
         <image src="{{item.version_img}}" class="shopImg"></image>
         <view class="shopInfo flex_item1">
           <view class="shopName">{{item.version_name}}</view>
-          <view class="way">邮寄回收</view>
+          <view class="way">{{item.type==1 ? '上门回收' : (item.type==2 ? '邮寄回收':'门店回收')}}</view>
           <view>
             <text class="shopTitle">预估价：</text>
             <text class="price">￥ {{item.price}}</text>
@@ -23,7 +23,8 @@
         </view>
       </view>
       <view class="footerBtn">
-        <text class="cancel" catchtap='cancelOrder' data-orderId="0">取消订单</text>
+        <text class="cancel" catchtap='cancelOrder' data-orderId="{{item.order_id}}" wx:if="{{item.status==1}}">取消订单</text>
+        <!-- <text class="comment" data-orderId="{{item.order_id}}" bindtap='ToComment' wx:if="{{((item.type==2||item.type==3)&&item.status==3)||(item.type==1&&item.status==4)}}">评价</text> -->
       </view>
     </view>
     <view class="orderOne" bindtap='linkTo' data-status="2" id="2" style='display:none'>

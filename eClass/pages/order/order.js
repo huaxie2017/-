@@ -1,3 +1,9 @@
+// 上门订单 type = 1
+// 已下单(1)  待上门(2)  订单完成(3) / 订单取消(4)
+// 邮寄订单 type = 2
+// 已下单(1)  待收件(2)  已收件(3)  订单完成(4) / 订单取消(5) 
+// 到店订单 type = 3
+// 已下单(1)  待到店(2) 订单完成(3) / 订单取消(4)
 const app = getApp()
 import { API, REQUEST } from '../../utils/index.js'
 let url = app.globalData.Api + "/rdata/orderDetail"
@@ -33,7 +39,7 @@ Page({
    */
   data: {
     orderId: '',
-    orderStatus: null, //1 下单完成 2 质检中 3 订单完成 4 订单取消
+    orderType:'',
     orderDetail:{}
   },
   ...methods,
@@ -44,9 +50,13 @@ Page({
     console.log(options)
     this.setData({
       orderId: options.orderId,
-      orderStatus: options.orderStatus
     })
     this.getOrderDetail(options.orderId)
+  },
+  goList:function(){
+    wx.switchTab({
+      url: '../productList/productList'
+    })
   },
   calling: function() {
 

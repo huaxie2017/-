@@ -1,7 +1,7 @@
 <view class="orderContent">
   <view>
     <!--交易取消显示-->
-    <view class="giveShow" wx:if="{{orderStatus==4}}">
+    <view class="giveShow" wx:if="{{(orderDetail.type==1&&orderDetail.s_status==4)||(orderDetail.type==2&&orderDetail.s_status==5)||(orderDetail.type==3&&orderDetail.s_status==3)}}">
       <image src='../../images/giveUp.png' class="giveUp"></image>
       <text class="giveText">交易已取消</text>
     </view>
@@ -40,31 +40,31 @@
   </view>
 
   <!--订单进行中-->
-  <view class="orderInfo" wx:if="{{orderStatus==1|| orderStatus==2||orderStatus==4}}">
+  <view class="orderInfo" wx:if="{{orderDetail.s_status==1|| orderDetail.s_status==2||((orderDetail.type==1||orderDetail.type==3)&&orderDetail.s_status==4)||(orderDetail.type==2&&(orderDetail.s_status==3||orderDetail.s_status==5))}}">
     <!--质检显示-->
-    <view class="waitContent" wx:if="{{orderStatus==2}}">
+    <view class="waitContent" wx:if="{{orderDetail.s_status==2}}">
       <view class="common_title">回收机器已收到，待检测</view>
       <view class="waitText">
         回收机器已收到，待检测过后，客服会电话联系确定 最终估价，请保持电话畅通
       </view>
     </view>
     <!--下单完成显示 邮寄地址-->
-    <!-- <view class="address" wx:if="{{orderStatus==1||orderStatus==4}}">
+    <view class="address" wx:if="{{orderDetail.type==2}}">
       <view class="common_title">邮寄地址</view>
       <view class="add">深圳市福田区上步工业区101栋二楼E16e修大师(收)</view>
       <view class="tel">电话：
         <text bindtap='calling'>0755-83259225</text>
       </view>
-    </view> -->
+    </view>
     <!--下单完成显示 上门地址-->
-    <view class="address" wx:if="{{orderStatus==1||orderStatus==4}}">
+    <view class="address" wx:if="{{orderDetail.type==1}}">
       <view class="common_title">上门地址</view>
       <view class="add">{{orderDetail.mail_company}}</view>
       <view class="tel">电话：
         <text bindtap='calling'>{{orderDetail.mobile}}</text>
       </view>
     </view>
-    <view class="shopInfo" wx:if="{{orderStatus==1|| orderStatus==2||orderStatus==4}}">
+    <view class="shopInfo">
       <view class="common_title">交易信息</view>
       <view class="flex center shopMessage">
         <image src='{{orderDetail.version_img}}' class="phone"></image>
@@ -78,7 +78,7 @@
         <text class="flex_item1 money">￥{{orderDetail.price}}</text>
       </view>
     </view>
-    <view class="addressInfo" wx:if="{{orderStatus==1|| orderStatus==2||orderStatus==4}}">
+    <view class="addressInfo">
       <view class="orderNum">
         <text class="infoName">订单编号：</text>
         <text class="infoM">{{orderDetail.order_id}}</text>
@@ -89,7 +89,7 @@
       </view>
       <view class="orderNum">
         <text class="infoName">回收方式：</text>
-        <text class="infoM">邮寄回收</text>
+        <text class="infoM">{{orderDetail.type==1 ? '上门回收' : (orderDetail.type==2 ? '邮寄回收':'门店回收')}}</text>
       </view>
       <view class="orderNum">
         <text class="infoName">您的姓名：</text>
@@ -110,11 +110,11 @@
     </view>
   </view>
   <!--下单成功时显示-->
-  <view class="footer" wx:if="{{orderStatus==1}}">
+  <view class="footer" wx:if="{{orderDetail.s_status==1}}">
       <text class="cancel" bindtap='cancelOrder'>取消订单</text>
   </view> 
   <!--订单取消-->
-  <view class="footer" wx:if="{{orderStatus==4}}">
-    <text class="cancel">重新询价</text>
+  <view class="footer" wx:if="{{orderDetail.s_status==4||(orderDetail.type==2&&orderDetail.s_status==5)}}">
+    <text class="cancel" bindtap='goList'>重新询价</text>
   </view>
 </view>

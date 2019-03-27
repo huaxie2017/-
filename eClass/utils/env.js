@@ -1,7 +1,7 @@
 const ENV = {
   dev: 'https://efix.ewiyi.com/api/',
   test: 'https://efix.ewiyi.com/api/',
-  pros: 'https://efix.ewiyi.com/api/'
+  prod: 'https://efix.ewiyi.com/api/'
 }
 function getOrigin () {
   try {

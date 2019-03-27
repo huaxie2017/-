@@ -51,7 +51,7 @@ Page({
   },
   linkTo(e) {
     wx.navigateTo({
-      url: "../order/order?orderId=" + e.currentTarget.dataset.orderid + "&orderStatus=" + e.currentTarget.dataset.status
+      url: "../order/order?orderId=" + e.currentTarget.dataset.orderid + "&orderStatus=" + e.currentTarget.dataset.status + "&orderType=" + e.currentTarget.dataset.type
     })
   },
   ToComment(e) {

@@ -1,3 +1,51 @@
+const app = getApp()
+import { API, REQUEST } from '../../utils/index.js'
+let url = app.globalData.Api + "/rdata/getCancel"
+let url1 = app.globalData.Api + "/rdata/cancelOrder"
+const methods = {
+  getDetail() {
+    wx.showLoading({
+      title: '加载中'
+    })
+    let that = this
+    REQUEST.get(url)
+      .then((res) => {
+        const { status, data } = res.data
+        if (status === 'success') {
+          that.setData({
+            reasonList: data,
+          })
+          wx.hideLoading()
+        } else {
+          wx.hideLoading()
+        }
+      })
+  },
+  cancelOrder(id,index){
+    wx.showLoading({
+      title: '加载中'
+    })
+    let that = this
+    REQUEST.get(url1,{
+      data:{
+        token:app.globalData.token,
+        order_id:id,
+        remark:index
+      }
+    })
+      .then((res) => {
+        const { status, data } = res.data
+        if (status === 'success') {
+          that.setData({
+           // reasonList: data,
+          })
+          wx.hideLoading()
+        } else {
+          wx.hideLoading()
+        }
+      })
+  }
+}
 Page({
 
   /**
@@ -5,35 +53,16 @@ Page({
    */
   data: {
     orderId:'',
-    reasonList: [{
-        status: 0,
-        reason: '交易时间不对'
-      },
-      {
-        status: 0,
-        reason: '其他原因'
-      },
-      {
-        status: 0,
-        reason: '自己留用'
-      },
-      {
-        status: 0,
-        reason: '价格不符合预期'
-      },
-      {
-        status: 0,
-        reason: '下单错误'
-      },
-    ],
+    reasonList: [],
     chooseIndex:null,
     cancelShow:false
   },
-
+  ...methods,
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.getDetail()
     this.setData({
       orderId: options.orderId
     })
@@ -75,6 +104,7 @@ Page({
     this.setData({
       cancelShow: false
     })
+    this.cancelOrder(this.data.orderId, this.data.chooseIndex)
     wx.navigateTo({
       url: "../order/order?orderId=" + this.data.orderId +"&orderStatus=4"
     })

@@ -14,7 +14,7 @@ class Toast {
     this.config = {
       title: '提示',
       mask: true,
-      duration: 3000,
+      duration: 1500,
       icon: 'none',
       success: () => { 
       },

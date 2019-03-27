@@ -1,3 +1,4 @@
+import { API, REQUEST, TOAST } from '../../utils/index'
 const methods = {
   selectType (e) { // 选择回收方式
     this.setData({
@@ -5,9 +6,10 @@ const methods = {
     })
   },
   toggleRegion (e) { // 选择地址
+    console.log(e.currentTarget.dataset.isClose)
     this.setData({
       pickShow: !this.data.pickShow,
-      regions: !e.detail.isClose ? e.detail.regions : this.data.regions
+      regions: e.detail.regions ? e.detail.regions : this.data.regions
     })
   },
   toggleDate (e) { // 选择日期
@@ -26,6 +28,32 @@ const methods = {
   toggleProtocol () {
     this.setData({
       protocolShow: !this.data.protocolShow
+    })
+  },
+  agree () {
+    this.setData({
+      isAgreed: !this.data.isAgreed
+    })
+  },
+  submit () {
+    if (!this.data.isAgreed) TOAST.warning({title: '请同意规则！'}); return
+  },
+  init () {
+    let url = API.getInfo + '?token=6542bdbb9c47d8109fcaa4d95c9a19d3' + '&order_info_id=' + 13701
+    REQUEST.get(url).then((res) => {
+    })
+  },
+  getPrice () {
+    let url = API.getPrice + '?token=' + '6542bdbb9c47d8109fcaa4d95c9a19d3'
+    REQUEST.post(API.getPrice, {
+      data: {
+        version_id: this.data.id,
+        fault_id: wx.getStorageSync('ids')
+      }
+    }).then((res) => {
+      const { data, status } = res.data
+      if (status === 'success') {
+      }
     })
   }
 }
@@ -47,7 +75,7 @@ Page({
       }
     ],
     indicatorDots: false,
-    autoplay: true,
+    // autoplay: true,
     interval: 5000,
     duration: 1000,
     vertical: true,
@@ -55,15 +83,15 @@ Page({
     recoverType: 0,
     regions: {
       province: {
-        regionName: "广东省",
+        name: "广东省",
         id: 0
       },
       city: {
-        regionName: '深圳市',
+        name: '深圳市',
         id: 0
       },
-      county: {
-        regionName: "南山区",
+      district: {
+        name: "南山区",
         id: 0
       }
     },
@@ -74,13 +102,19 @@ Page({
     date0: '',
     date1: '',
     date2: '',
-    recoverTypes: 0
+    recoverTypes: 0,
+    isAgreed: false
   },
   ...methods,
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      id: options.id
+    })
+    // this.init()
+    // this.getPrice()
   },
 
   /**

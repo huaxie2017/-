@@ -6,17 +6,6 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    // 登录
-    wx.login({
-      success: res => {
-        if(res.code){
-          console.log(res.code)
-          this.globalData.code=res.code
-        }else{
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -41,6 +30,16 @@ App({
         }
       }
     })
+    // 登录
+    // wx.login({
+    //   success: res => {
+    //     if (res.code) {
+    //       this.globalData.code = res.code
+    //     } else {
+    //       console.log('登录失败！' + res.errMsg)
+    //     }
+    //   }
+    // })
   },
   globalData: {
     userInfo: null,

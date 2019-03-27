@@ -23,14 +23,36 @@ swiper{
 .f_16{
   font-size:16px!important;
 }
-.f_24{
-  font-size: 24rpx;
+.f_24 {
+  font-size: 24rpx !important;
+}
+.f_28 {
+  font-size: 28rpx !important;
+}
+.f_30 {
+  font-size: 30rpx !important;
+}
+.f_36 {
+  font-size: 36rpx !important;
 }
 .c_l{
   text-align: left;
 }
+.c_c {
+  text-align: center;
+}
 .c_r{
   text-align: right;
+}
+.bold {
+  font-weight: bold;
+}
+.align-start {
+  align-items: flex-start !important;
+}
+.placeholder-def {
+  color: #989898;
+  font-size: 28rpx;
 }
  /*高清屏一像素边框*/
 .b_top{
@@ -70,6 +92,10 @@ swiper{
    align-items:center;
    justify-content: space-between;
 }
+.flex.around {
+  align-items: center;
+  justify-content: space-around;
+}
 .flex .flex_item1{
   flex:1;
   display: block;
@@ -77,38 +103,23 @@ swiper{
 .flex .item2{
   flex:2;
 }
-.clr::after{
-  content: "";
-  display: block;
-  height: 0;
-  clear: both;
-  overflow: hidden;
-}
 .fl{
   float: left;
 }
 .fr{
   float: right;
 }
-.common_title{
-  width: 714rpx;
-  margin: 0 auto;
-  position: relative;
-  padding-left: 30rpx;
-  font-size: 30rpx;
+.col-89 {
+  color: #898989;
+}
+.col-0b {
   color: #0b0b0b;
-  box-sizing: border-box;
-  font-weight: 800;
 }
-.common_title::before{
-  content: '';
-  display: block;
-  width: 14rpx;
-  height: 14rpx;
-  background: #ffe401;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  margin-top: -7rpx;
+.col-green {
+  color: #59C466;
 }
+/* ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+} */

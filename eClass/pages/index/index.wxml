@@ -2,9 +2,9 @@
 <view class="indexPage">
   <view class="banner">
      <image src="{{banner}}" class='banner_img'></image>
-     <view class="inputBox" bindtap='goList'>
+     <!-- <view class="inputBox" bindtap='goList'>
         <image src="{{search}}" class='searchIcon'></image><text class="title">输入您想要回收的机型名称</text>
-     </view>
+     </view> -->
   </view>
   <view class="priceMessage">
     <view class="phoneMessage flex center b_bot">
@@ -22,14 +22,14 @@
     <view class="recycleBtn">立即回收</view>
   </view>
   <view class='recycle flex center'>
-    <view class='flex_item1 c_l'>
+    <view class='flex_item1 c_l' bindtap="salePhone">
       <image src='{{recycle_phone}}' class='recycle_item'></image>
     </view>
-    <view class='flex_item1 c_r'>
+    <view class='flex_item1 c_r' bindtap='salePad'>
       <image src='{{recycle_pad}}' class="recycle_item"></image>
     </view>
   </view>
-  <view class="free_help" bindtap='free_help'>免费估价</view>
+  <view class="free_help" bindtap='freeHelp'>免费估价</view>
   <view class="time">
     <text class="circle"></text>
     <text class='timeSet'>限时高价</text>
