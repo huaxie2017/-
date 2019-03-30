@@ -1,0 +1,10 @@
+<view class='loginPage'>
+  <view>
+   <image src="https://efix.ewiyi.com/resWeb/images/images/logo1.png" class="logo"></image>
+  </view>
+  <view class="isLogin" wx:if="{{!hasUserInfo&&canIUse}}">
+    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo" class="getUserBtn">
+      获取用户信息
+    </button>
+  </view> 
+</view>

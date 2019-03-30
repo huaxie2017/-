@@ -1,5 +1,5 @@
 // pages/productList/productList.js
-import { API, REQUEST } from '../../utils/index.js'
+import { API, REQUEST, LOADING } from '../../utils/index.js'
 console.log(API)
 const app = getApp()
 const methods = {
@@ -7,15 +7,46 @@ const methods = {
     if (e.currentTarget.dataset.selected) return
     let _self = this
     let selecteModule = _self.data.selecteModule
+    if (e.currentTarget.dataset.types == 2) { // 卖平板
+      this.initBrandP()
+    } else {
+      this.initBrand()
+    }
     selecteModule.forEach((item) => {
-      if (item.ids === e.currentTarget.dataset.index) {
+      if (item.idx === e.currentTarget.dataset.types) {
+        item.selected = true
+      } else {
+        item.selected = false
+      }
+    })
+    console.log(_self.data.brand_id)
+    _self.setData({
+      selecteModule: selecteModule,
+      types: e.currentTarget.dataset.types
+    }, () => {
+      this.chooseBrand({
+        'brandId': _self.data.brand_id
+      })
+    })
+  },
+  indexChoose(types){
+    let _self = this
+    let selecteModule = _self.data.selecteModule
+    if (types == 2) { // 卖平板
+      this.initBrandP()
+    } else {
+      this.initBrand()
+    }
+    selecteModule.forEach((item) => {
+      if (item.idx == types) {
         item.selected = true
       } else {
         item.selected = false
       }
     })
     _self.setData({
-      selecteModule: selecteModule
+      selecteModule: selecteModule,
+      types:types
     })
   },
   initBrand () {
@@ -26,31 +57,53 @@ const methods = {
           brandModule: data,
           'brand_id': data[0].id
         }, () => {
-          this.chooseBrand(data[0].id)
+          this.chooseBrand({
+            'brandId': data[0].id
+          })
         })
       }
     })
   },
-  chooseBrand (e) {
-    wx.showLoading({
-      title: '加载中'
+  initBrandP() {
+    REQUEST.get(API.getBrandP).then((res) => {
+      const { status, data } = res.data
+      if (status === 'success') {
+        this.setData({
+          brandModule: data,
+          'brand_id': data[0].id
+        }, () => {
+          this.chooseBrand({
+            'brandId': data[0].id
+          })
+        })
+      }
     })
+  },
+  selectBrand (e) {
+    this.chooseBrand({
+      'brandId': e.currentTarget.dataset.id
+    })
+  },
+  chooseBrand (msg) {
+    console.log(msg)
+    LOADING.show({title: '加载中'})
     let that = this
     REQUEST.get(API.getVersionById, {
       data: {
-        'brand_id': e == that.data.brandModule[0].id ?  that.data.brandModule[0].id : e.currentTarget.dataset.id
+        'brand_id': msg.brandId,
+        'type': that.data.types
       }
     }).then((res) => {
       const { status, data } = res.data
       if (status === 'success') {
         this.setData({
           versionModule: data,
-          'brand_id': e == that.data.brandModule[0].id ? that.data.brandModule[0].id : e.currentTarget.dataset.id,
+          'brand_id': msg.brandId,
           scrollTop: 0
         })
-        wx.hideLoading()
+        LOADING.hide()
       } else {
-        wx.hideLoading()
+        LOADING.hide()
       }
     })
   },
@@ -70,24 +123,29 @@ Page({
       {
         content: '卖手机',
         selected: true,
-        ids: 0
+        idx: 1
       },
       {
         content: '卖平板',
         selected: false,
-        ids: 1
+        idx: 2
       }
     ],
     brandModule: [],
     versionModule: [],
-    scrollTop: 0
+    scrollTop: 0,
+    types: 1
   },
   ...methods,
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.initBrand()
+    if(options.types){
+      this.indexChoose(options.types)
+    }else{
+      this.initBrand()
+    }
   },
 
   /**

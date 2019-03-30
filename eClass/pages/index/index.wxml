@@ -1,25 +1,25 @@
 <!--index.wxml-->
 <view class="indexPage">
   <view class="banner">
-     <image src="{{banner}}" class='banner_img'></image>
-     <!-- <view class="inputBox" bindtap='goList'>
+    <image src="{{banner}}" class='banner_img'></image>
+    <!-- <view class="inputBox" bindtap='goList'>
         <image src="{{search}}" class='searchIcon'></image><text class="title">输入您想要回收的机型名称</text>
      </view> -->
   </view>
   <view class="priceMessage">
     <view class="phoneMessage flex center b_bot">
-      <image src='{{phoneImg}}' class='phoneImg'></image>
+      <image src='{{onlineH.image}}' class='phoneImg'></image>
       <view class="flex_item1">
-        <text class='phoneName'>iPhone X</text>
-        <text class="high">最高回收价<text class="price">￥3888</text></text>
+        <text class='phoneName'>{{onlineH.name}}</text>
+        <text class="high">最高回收价<text class="price">￥{{onlineH.price}}</text></text>
       </view>
     </view>
     <view class="num_down">
       <image class='downIcon' src="{{downImg}}"></image>
-      <text class="price_down">下月约降￥300</text>
+      <text class="price_down">下月约降￥{{onlineH.down}}</text>
     </view>
     <image src="../../images/status1.png" class="statusImg"></image>
-    <view class="recycleBtn">立即回收</view>
+    <view class="recycleBtn" bindtap='saleNow' data-item='{{onlineH}}'>立即回收</view>
   </view>
   <view class='recycle flex center'>
     <view class='flex_item1 c_l' bindtap="salePhone">
@@ -38,27 +38,26 @@
     <text class="timeNum m_l">20</text> -->
   </view>
   <view class="swiper_box">
-    <swiper class="swiper_phone" indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}"        duration="{{swiper.duration}}" indicator-color="{{swiper.indicatorColor}}" 
-    circular="{{swiper.circular}}" display-multiple-items='3'>
-      <swiper-item wx:for="{{phoneList}}" wx:for-item="item" wx:key="{{index}}" class="phone_swiper">
-        <view class='phoneItem'>	
+    <swiper class="swiper_phone" indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}" indicator-color="{{swiper.indicatorColor}}" circular="{{swiper.circular}}" display-multiple-items='3'>
+      <swiper-item wx:for="{{phoneList}}" wx:for-item="item" wx:key="{{index}}" class="phone_swiper" bindtap="salePhoneNow" data-item="{{item}}">
+        <view class='phoneItem'>
           <image src='{{item.url}}' class="phoneOne"></image>
           <view class="phoneTitle">{{item.name}}</view>
           <view class="priceChange">
-           <text class="price_new">￥ {{item.min}}</text>
-           <text class="price_old">￥ {{item.max}}</text>
+            <text class="price_new">￥ {{item.min}}</text>
+            <text class="price_old">￥ {{item.max}}</text>
           </view>
           <view class="num_top">
-           <image src="{{numBg}}" class="num_bg"></image>
-           <text class="numOne">NO{{index+1}}</text>
+            <image src="{{numBg}}" class="num_bg"></image>
+            <text class="numOne">NO{{index+1}}</text>
           </view>
-        </view>    
+        </view>
       </swiper-item>
-  </swiper>
+    </swiper>
   </view>
-  <view class="line_he">
+  <!-- <view class="line_he">
     <text class='line_g'></text>
-  </view>
+  </view> -->
   <view class='message_on flex center'>
     <view class="message_l">
       <image src="{{messageIcon}}" class='message_icon'></image>
@@ -66,31 +65,31 @@
     <view class="flex_item1 who">
       <view class="who_ul">
         <swiper class="swiperitem" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" vertical="true" circular="true">
-        <block wx:for="{{winnersbox}}" wx:for-item="item" wx:key="index">
-          <swiper-item class="swiper_text">
-            <view class="who_li">{{item.text}}</view>
-          </swiper-item>
-        </block>
-      </swiper>
+          <block wx:for="{{messageList}}" wx:for-item="item" wx:key="index">
+            <swiper-item class="swiper_text">
+              <view class="who_li">{{item.name}}{{item.version_name}}成功回收进账￥{{item.price}}</view>
+            </swiper-item>
+          </block>
+        </swiper>
       </view>
     </view>
   </view>
   <view class='comment'>
-     用户评价
+    用户评价
   </view>
   <view class="comment_box">
-    <view class="comment_ul"> 
+    <view class="comment_ul">
       <view class="commtent_li clr" wx:for="{{commentList}}" wx:for-item="item" wx:key="index">
         <view class='peopleInfo fl'>
           <image src='{{item.ava}}' class="peopleLogo"></image>
           <text class="peopleName">{{item.name}}*</text>
         </view>
         <view class="fr">
-          <view class="comment_bg" style='background-image:url(../../images/message_bg.png)'>
+          <view class="comment_bg">
             <text class='comment_message'>{{item.comment}}</text>
           </view>
           <view class='shopInfo'>
-             {{item.iPhone8}} 进账￥{{item.price}}
+            {{item.iPhone8}} 进账￥{{item.price}}
           </view>
         </view>
       </view>
@@ -100,40 +99,40 @@
     </view> -->
   </view>
   <view class='comment'>
-     流程与保障
+    流程与保障
   </view>
   <view class="flex center stepBox">
     <view class="flex_item1 stepOne">
-        <view class='step1'>
-          <image src="../../images/taskPhone.png" class='taskPhone'></image>
-        </view>
-        <text class="stepName">旧机估价</text>
+      <view class='step1'>
+        <image src="../../images/taskPhone.png" class='taskPhone'></image>
+      </view>
+      <text class="stepName">旧机估价</text>
     </view>
     <view class="flex_item1 stepOne">
-        <view class='step1'>
-          <image src="../../images/taskOrder.png" class='taskOrder'></image>
-        </view>
-        <text class="stepName">在线下单</text>
+      <view class='step1'>
+        <image src="../../images/taskOrder.png" class='taskOrder'></image>
+      </view>
+      <text class="stepName">在线下单</text>
     </view>
     <view class="flex_item1 stepOne">
-        <view class='step1'>
-          <image src="../../images/taskChange.png" class='taskChange'></image>
-        </view>
-        <text class="stepName">专业回收</text>
+      <view class='step1'>
+        <image src="../../images/taskChange.png" class='taskChange'></image>
+      </view>
+      <text class="stepName">专业回收</text>
     </view>
     <view class="flex_item1 stepOne">
-        <view class='step1'>
-          <image src="../../images/taskMoney.png" class='taskMoney'></image>
-        </view>
-        <text class="stepName">快速收款</text>
+      <view class='step1'>
+        <image src="../../images/taskMoney.png" class='taskMoney'></image>
+      </view>
+      <text class="stepName">快速收款</text>
     </view>
   </view>
   <view class='slogin'>
     正品自营 | 任意品牌 | 极速回收 | 私隐保障
   </view>
-  <view class="isLogin" wx:if="{{!hasUserInfo&&canIUse}}">
-     <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo" class="getUserBtn">
+  <!-- <view class="isLogin" wx:if="{{!hasUserInfo&&canIUse}}">
+    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo" class="getUserBtn">
       获取用户信息
-     </button>
-  </view>
+    </button>
+  </view> -->
 </view>

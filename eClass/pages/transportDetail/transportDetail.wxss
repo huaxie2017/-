@@ -1,0 +1,66 @@
+/* pages/transportDetail/transportDetail.wxss */
+.transportDetail{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40rpx 26rpx;
+}
+.rule_title{
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 30rpx;
+}
+.price_konw{
+  font-size: 24rpx;
+  color: #333;
+  margin-bottom: 30rpx;
+}
+.table_konw{
+  width: 100%;
+  border:1rpx solid #eee;
+}
+.th_r{
+  width: 100%;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  background: #dcdcdc;
+  font-size: 24rpx;
+  color: #333;
+}
+.table_content{
+  width: 100%;
+  border-left: 1rpx solid #eee;
+  border-right: 1rpx solid #eee;
+  border-bottom: 1rpx solid #eee;
+}
+.content1{
+  width: 100%;
+  height: 300rpx;
+  color: #333;
+  font-size: 24rpx;
+  text-align: center;
+}
+.content1.one{
+  line-height: 300rpx;
+  border-right: 1rpx solid #eee;
+}
+.content1.two{
+  border-right: 1rpx solid #eee;
+  box-sizing: border-box;
+  padding: 133rpx 30rpx 0 30rpx;
+}
+.content1.three{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40rpx 30rpx 0 30rpx;
+}
+.topic{
+  font-size: 24rpx;
+  color: #666;
+  margin: 30rpx 0;
+}
+.topic_li{
+  font-size: 24rpx;
+  color: #333;
+  line-height: 36rpx;
+}

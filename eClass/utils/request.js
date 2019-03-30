@@ -69,7 +69,10 @@ class Request {
   post(url, config) {
     let postConfig = {
       url: url,
-      method: 'POST'
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
     }
     return this.open(this.mixin(config, postConfig))
   }

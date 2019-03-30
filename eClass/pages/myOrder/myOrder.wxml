@@ -1,12 +1,12 @@
 <view class="myOrder">
   <!--没有订单显示-->
   <view class="noOrder" wx:if="{{noOrder}}">
-     <image src="../../images/orderOut.jpg" class="noImg"></image>
-     <view class='noText'>您还没有回收订单噢~赶紧出手吧</view>
+    <image src="../../images/orderOut.jpg" class="noImg"></image>
+    <view class='noText'>您还没有回收订单噢~赶紧出手吧</view>
   </view>
   <!--订单显示-->
   <view class="orderContent" wx:if="{{!noOrder}}">
-    <view class="orderOne" data-orderId="{{item.order_id}}" bindtap='linkTo' data-type='{{item.type}}' data-status="{{item.status}}" wx:for="{{orderList}}" wx:for-item="item" wx:key="index">
+    <view class="orderOne" data-orderId="{{item.order_id}}" bindtap='linkTo' wx:for="{{orderList}}" wx:for-item="item" wx:key="index">
       <view class='timeStatus flex center'>
         <view class="flex_item1 time">{{item.created}}</view>
         <view class="flex_item1 orderStatus">{{item.status_str}}</view>
@@ -69,5 +69,10 @@
         <text class="comment" data-orderId="1" bindtap='ToComment'>评价</text>
       </view>
     </view>
+  </view>
+  <view class="isLogin" wx:if="{{!hasUserInfo&&canIUse}}">
+    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo" class="getUserBtn">
+      使用微信授权登录
+    </button>
   </view>
 </view>

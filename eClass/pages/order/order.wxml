@@ -12,30 +12,93 @@
     <!--完成-->
     <image src="../../images/stepThree.jpg" class='stepThree' wx:if="{{orderStatus==3}}"></image>
   </view>
+  <!--邮寄进度条-->
+  <view class="steps" wx:if="{{orderDetail.type==2}}">
+    <view class='steps_mail flex center'>
+      <view class="flex_item1 step_d finish_step">
+        <view class="step_line finish_step">
+          <view class="circle finish_step"></view>
+        </view>
+        <text class="m-left">下单成功</text>
+      </view>
+      <view class="flex_item1 step_d">
+        <view class="step_line">
+          <view class="circle"></view>
+        </view>
+        <text class="m-left">上门取件</text>
+      </view>
+      <view class="flex_item1 step_d">
+        <view class="step_line">
+          <view class="circle"></view>
+          <view class="circle_finish"></view>
+        </view>
+        <view class="flex center">
+          <text class="flex_item1 wait_order">收货质检</text>
+          <text class="flex_item1 finish_order">订单完成</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--上门进度条-->
+  <view class="steps" wx:if="{{orderDetail.type==1}}">
+    <view class='steps_mail flex center'>
+      <view class="flex_item1 step_d finish_step">
+        <view class="step_line {{(orderDetail.s_status==2 || orderDetail.s_status==3) ? 'finish_step' : ''}}">
+          <view class="circle finish_step"></view>
+        </view>
+        <text class="m-left">下单成功</text>
+      </view>
+      <view class="flex_item1 step_d">
+        <view class="step_line {{orderDetail.s_status==3 ? 'finish_step' : ''}}">
+          <view class="circle {{(orderDetail.s_status==2||orderDetail.s_status==3) ? 'finish_step' : ''}}"></view>
+          <view class="circle_finish {{orderDetail.s_status==3 ? 'finish_step' : ''}}"></view>
+        </view>
+        <view class="flex center">
+          <text class="flex_item1 wait_order {{(orderDetail.s_status==2||orderDetail.s_status==3) ? 'finish_step' : ''}}">等待上门</text>
+          <text class="flex_item1 finish_order {{orderDetail.s_status==3 ? 'finish_step' : ''}}">订单完成</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--到店进度条-->
+  <view class="steps" wx:if="{{orderDetail.type==3}}">
+    <view class='steps_home'>
+     <view class="step_d">
+        <view class="step_line {{orderDetail.s_status==3 ? 'finish_step' : ''}}">
+          <view class="circle finish_step"></view>
+          <view class="circle_finish {{orderDetail.s_status==3 ? 'finish_step' : ''}}"></view>
+        </view>
+        <view class="flex center">
+          <text class="flex_item1 wait_order finish_step">下单成功</text>
+          <text class="flex_item1 finish_order {{orderDetail.s_status==3 ? 'finish_step' : ''}}">订单完成</text>
+        </view>
+      </view>
+    </view>
+  </view>
   <!--订单完成-->
-  <view class="orderFinish" wx:if="{{orderStatus==3}}">
+  <view class="orderFinish" wx:if="{{(orderDetail.type==1&&orderDetail.s_status==3)||(orderDetail.type==2&&orderDetail.s_status==4)||(orderDetail.type==3&&orderDetail.s_status==3)}}">
     <image src="../../images/orderS.jpg" class="orderSuccess"></image>
     <text class="successText">订单已完成</text>
     <view class="successInfo">
       <text class="successPrice">收款：</text>
-      <text class="successMoney">￥200</text>
+      <text class="successMoney">￥{{orderDetail.price}}</text>
     </view>
     <view class="orderInfo">
       <view class="shopInfo">
         <view class="common_title">交易信息</view>
         <view class="flex center shopMessage">
-          <image src='../../images/phone.png' class="phone"></image>
+          <image src='{{orderDetail.version_img}}' class="phone"></image>
           <view class="message_p flex_item1">
-            <view class="phoneName">iPhone 7</view>
-            <view class="source">购买渠道：香港行货</view>
+            <view class="phoneName">{{orderDetail.version_name}}</view>
+            <view class="source" bindtap='lookPop'>查看手机详情</view>
           </view>
         </view>
         <view class="price flex center">
           <text class="flex_item1 name">回收价</text>
-          <text class="flex_item1 money">￥188</text>
+          <text class="flex_item1 money">￥{{orderDetail.price}}</text>
         </view>
       </view>
-      <view class="commentBtn">评价</view>
+      <!-- <view class="commentBtn">评价</view> -->
     </view>
   </view>
 
@@ -56,6 +119,14 @@
         <text bindtap='calling'>0755-83259225</text>
       </view>
     </view>
+    <!--门店地址-->
+    <view class="address" wx:if="{{orderDetail.type==3}}">
+      <view class="common_title">门店地址</view>
+      <view class="add">深圳市福田区上步工业区101栋二楼E16e修大师</view>
+      <view class="tel">电话：
+        <text bindtap='calling'>0755-83259225</text>
+      </view>
+    </view>
     <!--下单完成显示 上门地址-->
     <view class="address" wx:if="{{orderDetail.type==1}}">
       <view class="common_title">上门地址</view>
@@ -70,7 +141,7 @@
         <image src='{{orderDetail.version_img}}' class="phone"></image>
         <view class="message_p flex_item1">
           <view class="phoneName">{{orderDetail.version_name}}</view>
-          <view class="source">购买渠道：香港行货</view>
+          <view class="source" bindtap='lookPop'>查看手机详情</view>
         </view>
       </view>
       <view class="price flex center">
@@ -104,17 +175,34 @@
         <text class="infoM">{{orderDetail.service_time}}</text>
       </view>
       <view class="orderNum">
+        <text class="infoName">购买渠道：</text>
+        <text class="infoM">{{orderDetail.mobile_from_type}}</text>
+      </view>
+      <!-- <view class="orderNum">
         <text class="infoName">收款方式：</text>
         <text class="infoM">微信支付/支付宝</text>
-      </view>
+      </view> -->
     </view>
   </view>
   <!--下单成功时显示-->
   <view class="footer" wx:if="{{orderDetail.s_status==1}}">
-      <text class="cancel" bindtap='cancelOrder'>取消订单</text>
-  </view> 
+    <text class="cancel" bindtap='cancelOrder'>取消订单</text>
+  </view>
   <!--订单取消-->
   <view class="footer" wx:if="{{orderDetail.s_status==4||(orderDetail.type==2&&orderDetail.s_status==5)}}">
     <text class="cancel" bindtap='goList'>重新询价</text>
+  </view>
+  <!--手机详情-->
+  <view class='fix_bg' bindtap='closeFix' hidden='{{popShow}}'>
+    <view class="phoneContent">
+      <view class="title_top">
+        设备评估详情
+        <text class="closeDetail" catchtap='closePop'>关闭</text>
+      </view>
+      <view class="flex center detail_li" wx:for="{{orderDetail.orderIno}}" wx:for-item="item" wx:key="index">
+        <view class="buyWay">{{item.key}}</view>
+        <view class="flex_item1 info">{{item.value}}</view>
+      </view>
+    </view>
   </view>
 </view>

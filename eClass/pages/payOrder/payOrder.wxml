@@ -13,14 +13,14 @@
   <!-- 订单信息 -->
   <view class='order-detail'>
     <view class='message'>
-      <text class='col-0b f28 right-auto'>行业均价：￥175</text>
+      <text class='col-0b f28 right-auto'>行业均价：￥{{hPrice}}</text>
       <image src='../../images/messageIcon.png' class='icon-city fl-r'></image>
-      <text class='col-0b f24 marl-8'>深圳市</text>
+      <text class='col-0b f24 marl-8'>{{city}}</text>
     </view>
     <view class='price col-0b'>
-      <text class='f30'>￥</text>188
+      <text class='f30'>￥</text>{{price}}
     </view>
-    <view class='order-tips f24'>预计一周后下降50元</view>
+    <view class='order-tips f24'>预计一周后下降{{downPrice}}元</view>
     <button class='renew col-0b f24'>重新估价</button>
   </view>
 
@@ -28,16 +28,18 @@
   <view>
     <view class='headline col-0b f36 bold'>选择回收方式</view>
     <view class='recover-main'>
-      <view class='recover-tab flex f_28'>
-        <view class='tab tab-0 {{recoverType == 0 ? "tab-actived" : ""}}' data-type='0' bindtap='selectType'>快递回收(包邮)</view>
-        <view class='tab tab-1 {{recoverType == 1 ? "tab-actived" : ""}}' data-type='1' bindtap='selectType'>门店回收</view>
-        <view class='tab tab-1 {{recoverType == 2 ? "tab-actived" : ""}}' data-type='2' bindtap='selectType'>上门回收</view>
+      <view class='recover-tab flex f_24'>
+        <view class='tab tab-0 {{recoverType == 0 ? "tab-actived" : ""}}' data-type='0' data-types='2' bindtap='selectType'>快递回收(包邮)</view>
+        <view class='tab tab-1 {{recoverType == 1 ? "tab-actived" : ""}}' data-type='1' data-types='3' bindtap='selectType' wx:if="{{isHome==1}}">门店回收</view>
+        <view class='tab tab-1 tab_disable' wx:if="{{isHome==0}}">门店回收</view>
+        <view class='tab tab-1 {{recoverType == 2 ? "tab-actived" : ""}}' data-type='2' data-types='1' bindtap='selectType' wx:if="{{isType==1}}">上门回收</view>
+        <view class='tab tab-1 tab_disable' wx:if="{{isType==0}}">上门回收</view>
       </view>
       <view class='recover-form'>
         <view class='recover-form-0' hidden='{{recoverType == 1 || recoverType == 2}}'>
           <view class='flex between store-address'>
             <text class='col-0b f_28 bold'>顺丰上门取件</text>
-            <view>
+            <view bindtap='goTransportDetail'>
               <image src='../../images/messageIcon.png' class='icon-remind'></image>
               <text class='col-98 f_24'>免运费说明</text>
             </view>
@@ -47,38 +49,55 @@
             <image class='icon-arrow' src='../../images/messageIcon.png'></image>
           </view>
           <view class='flex between store-address'>
-            <input placeholder='输入您的详细地址' type='text' placeholder-class='placeholder-def' class='wid100'></input>
+            <input placeholder='输入您的详细地址' type='text' placeholder-class='placeholder-def' class='wid100' value='{{formData.addressDetailInfo}}' bindinput='onInputAdditionalBlur'></input>
           </view>
           <view class='flex between store-address'>
-            <input placeholder='输入寄件人真实姓名' type='text' placeholder-class='placeholder-def' class='wid100'></input>
+            <input placeholder='输入寄件人真实姓名' type='text' placeholder-class='placeholder-def' class='wid100' value='{{formData.userName}}' bindinput='onInputUserNameBlur'></input>
           </view>
           <view class='flex between store-address'>
-            <input placeholder='输入联系电话' type='number' placeholder-class='placeholder-def' class='wid100'></input>
+            <input placeholder='输入联系电话' type='number' placeholder-class='placeholder-def' class='wid100' value='{{formData.telNumber}}' bindinput='onInputTelBlur'></input>
           </view>
           <view class='flex between store-address' data-types='0' bindtap='toggleDate'>
-            <text class='col-0b f28'>预约时间 {{date0}}
+            <text class='col-0b f28'>预约时间 {{datetime}}
             </text>
             <image class='icon-arrow' src='../../images/messageIcon.png'></image>
+          </view>
+          <view class='flex between store-address' data-isClose='false' style='position: relative;'>
+            <text class='col-0b f28'>请选择机器来源:</text>
+            <picker mode="selector" range="{{orginList}}" bindchange="listenerPickerSelected" class='logistics-list'>
+              <text class='origin f_30'>{{orginList[index]}}</text>
+            </picker>
           </view>
         </view>
         <view class='recover-form-1' hidden='{{recoverType == 2 || recoverType == 0}}'>
           <view class='flex between store-address'>
             <text class='col-0b f_28 bold'>e修大师福田总部</text>
-            <text class='col-98 f_24'>免运费说明</text>
           </view>
           <view class='flex between store-address align-start'>
             <view>
               <text class='col-0b f_28'>深圳市福田区上步工业区101栋二楼E16</text>
-              <view>
+              <!-- <view>
                 <image src='../../images/messageIcon.png' class='icon-warning'></image>
                 <text class='col-warning f24'>您所在的区域不在门店回收服务范围内</text>
-              </view>
+              </view> -->
             </view>
             <image src='../../images/messageIcon.png' class='icon-tel'></image>
           </view>
+          <view class='flex between store-address'>
+            <input placeholder='输入姓名' type='text' placeholder-class='placeholder-def' class='wid100' value='{{formData.userName}}' bindinput='onInputUserNameBlur'></input>
+          </view>
+          <view class='flex between store-address'>
+            <input placeholder='输入联系电话' type='number' placeholder-class='placeholder-def' class='wid100' value='{{formData.telNumber}}' bindinput='onInputTelBlur'></input>
+          </view>
           <view class='flex between store-address' data-types='1' bindtap='toggleDate'>
-            <text class='col-0b f28'>预约时间 {{date0}}</text>
+            <text class='col-0b f28'>预约时间 {{datetime}}</text>
             <image class='icon-arrow' src='../../images/messageIcon.png'></image>
+          </view>
+          <view class='flex between store-address' data-isClose='false' style='position: relative;'>
+            <text class='col-0b f28'>请选择机器来源:</text>
+            <picker mode="selector" range="{{orginList}}" bindchange="listenerPickerSelected" class='logistics-list'>
+              <text class='origin f_30'>{{orginList[index]}}</text>
+            </picker>
           </view>
         </view>
         <view class='recover-form-2' hidden='{{recoverType == 0 || recoverType == 1}}'>
@@ -86,21 +105,27 @@
             <text class='col-0b f_28 bold'>上门交易</text>
           </view>
           <view class='flex between store-address' data-isClose='false' bindtap='toggleRegion'>
-            <text class='col-0b f_28 bold'>{{regions.province.name}}{{regions.city.name}}{{regions.district.name}}</text>
+            <text class='col-0b f28'>{{regions.province.name}}{{regions.city.name}}{{regions.district.name}}</text>
             <image class='icon-arrow' src='../../images/messageIcon.png'></image>
           </view>
           <view class='flex between store-address'>
-            <input placeholder='输入您的详细地址' type='text' placeholder-class='placeholder-def' class='wid100'></input>
+            <input placeholder='输入您的详细地址' type='text' placeholder-class='placeholder-def' class='wid100' value='{{formData.addressDetailInfo}}' bindinput='onInputAdditionalBlur'></input>
           </view>
           <view class='flex between store-address'>
-            <input placeholder='输入寄件人真实姓名' type='text' placeholder-class='placeholder-def' class='wid100'></input>
+            <input placeholder='输入姓名' type='text' placeholder-class='placeholder-def' class='wid100' value='{{formData.userName}}' bindinput='onInputUserNameBlur'></input>
           </view>
           <view class='flex between store-address'>
-            <input placeholder='输入联系电话' type='text' placeholder-class='placeholder-def' class='wid100'></input>
+            <input placeholder='输入联系电话' type='number' placeholder-class='placeholder-def' class='wid100' value='{{formData.telNumber}}' bindinput='onInputTelBlur'></input>
           </view>
           <view class='flex between store-address' data-types='2' bindtap='toggleDate'>
-            <text class='col-0b f28'>预约时间 {{date0}}</text>
+            <text class='col-0b f28'>预约时间 {{datetime}}</text>
             <image class='icon-arrow' src='../../images/messageIcon.png'></image>
+          </view>
+          <view class='flex between store-address' data-isClose='false' style='position: relative;'>
+            <text class='col-0b f28'>请选择机器来源:</text>
+            <picker mode="selector" range="{{orginList}}" bindchange="listenerPickerSelected" class='logistics-list'>
+              <text class='origin f_30'>{{orginList[index]}}</text>
+            </picker>
           </view>
         </view>
       </view>
@@ -108,19 +133,84 @@
   </view>
   <view>
     <view class='agreement col-98 f24'>
-      <text class='btn-select {{isAgreed ? "btn-select-s" : "btn-select-d"}}' bindtap='agree'></text>
-      我已阅读并同意<text class='col-blue' data-types='0' bindtap='toggleProtocol'>用户协议</text>和<text class='col-blue' data-type='1' bindtap='toggleProtocol'>隐私协议</text>,并且确认机器来源合法
+      <text class='btn-select {{formData.isAgreed ? "btn-select-s" : "btn-select-d"}}' bindtap='agree'></text> <text bindtap='agree'>我已阅读并同意</text>
+      <text class='col-blue' data-types='0' bindtap='toMember'>用户协议</text>和
+      <text class='col-blue' data-type='1' bindtap='toPassMember'>隐私协议</text> ,并且确认机器来源合法
     </view>
     <!-- 省市区三级联动 -->
     <view hidden='{{!pickShow}}'>
-       <regionModule bind:toggleRegion='toggleRegion' regions='{{regions}}'></regionModule>
+      <regionModule bind:toggleRegion='toggleRegion' regions='{{regions}}'></regionModule>
     </view>
     <view hidden='{{!dateShow}}'>
-      <dateModule bind:toggleDate='toggleDate' recoverTypes='{{recoverTypes}}'></dateModule>
+      <dateModule bind:toggleDate='toggleDate' recoverTypes='{{recoverTypes}}' orderInfoId="13719"></dateModule>
     </view>
     <view hidden='{{!protocolShow}}'>
-      <protocolModule info='{{protocolContent}}' bind:toggleProtocol='toggleProtocol'></protocolModule>
-    </view> 
+      <protocolModule info='{{protocolContent}}' bind:toggleProtocol='toggleProtocol' title="用户协议"></protocolModule>
+    </view>
+    <view hidden='{{!passShow}}'>
+      <protocolModule info='{{protocolContent}}' bind:toggleProtocol='togglePass' title="隐私协议"></protocolModule>
+    </view>
+    <!-- 新增 预约时间 start-->
+    <view class="fixed-mask" hidden="{{bookingShow}}" bindtap="bookingHide">
+
+    </view>
+    <view class="bookingTime" hidden="{{bookingShow}}">
+      <view class="tit">选择您期望的上门时间：</view>
+      <scroll-view class="swiper-container swiper-container2 gallery-thumbs gallery-thumbs1" scroll-x="true" style="width:100%;">
+        <view class="swiper-wrapper clr" style="width:175%">
+          <block wx:for="{{timeArr}}" wx:for-item="item" wx:key="index">
+            <view class="swiper-slide">
+              <view class="intro {{item.flag}}" data-hour="{{index}}" bindtap="chooseDate" data-input="{{item.value}}">
+                <view class="mt">{{item.name}}</view>
+                <view class="data-time" date-value="{{item.month}}-{{item.date}}">{{item.month}}月{{item.date}}日</view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+
+      <view class="swiper-container swiper-container2 gallery-top gallery-top1">
+        <view class="swiper-wrapper">
+          <view class="swiper-slide">
+            <view class="pd clr">
+              <view class="t-item {{cho[0]}} {{full[0]}} {{hourArray[0]==1 ? 'noClick' : ''}}" data-t="0" data-status="{{hourArray[0]}}" bindtap="chooseTime" data-l="{{dataline[0]}}">
+                <view class="p1">{{dataline[0]}}</view>
+                <view class="hid">10:00</view>
+                <view class="p2" wx:if="{{hourArray[0]==1}}">约满</view>
+                <image class="icon-dg" src="https://efix.ewiyi.com/resMobile/images/visit/dg.png"></image>
+              </view>
+              <view class="t-item {{cho[1]}} {{full[1]}} {{hourArray[1]==1 ? 'noClick' : ''}}" data-t="1" data-status="{{hourArray[1]}}" bindtap="chooseTime" data-l="{{dataline[1]}}">
+                <view class="p1">{{dataline[1]}}</view>
+                <view class="hid">12:00</view>
+                <view class="p2" wx:if="{{hourArray[1]==1}}">约满</view>
+                <image class="icon-dg" src="https://efix.ewiyi.com/resMobile/images/visit/dg.png"></image>
+              </view>
+              <view class="t-item {{cho[2]}} {{full[2]}} {{hourArray[2]==1 ? 'noClick' : ''}}" data-t="2" data-status="{{hourArray[2]}}" bindtap="chooseTime" data-l="{{dataline[2]}}">
+                <view class="p1">{{dataline[2]}}</view>
+                <view class="hid">14:00</view>
+                <view class="p2" wx:if="{{hourArray[2]==1}}">约满</view>
+                <image class="icon-dg" src="https://efix.ewiyi.com/resMobile/images/visit/dg.png"></image>
+              </view>
+              <view class="t-item {{cho[3]}} {{full[3]}} {{hourArray[3]==1 ? 'noClick' : ''}}" data-t="3" data-status="{{hourArray[3]}}" bindtap="chooseTime" data-l="{{dataline[3]}}">
+                <view class="p1">{{dataline[3]}}</view>
+                <view class="hid">16:00</view>
+                <view class="p2" wx:if="{{hourArray[3]==1}}">约满</view>
+                <image class="icon-dg" src="https://efix.ewiyi.com/resMobile/images/visit/dg.png"></image>
+              </view>
+              <view class="t-item {{cho[4]}} {{full[4]}} {{hourArray[4]==1 ? 'noClick' : ''}}" data-t="4" data-status="{{hourArray[4]}}" bindtap="chooseTime" data-l="{{dataline[4]}}">
+                <view class="p1">{{dataline[4]}}</view>
+                <view class="hid">18:00</view>
+                <view class="p2" wx:if="{{hourArray[4]==1}}">约满</view>
+                <image class="icon-dg" src="https://efix.ewiyi.com/resMobile/images/visit/dg.png"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+
+      <input type="text" style="display:none" value="{{datetime}}" name="service_time" id="bookingTime-hid" />
+    </view>
     <button class='btn-submit bold' bindtap='submit'>提交订单</button>
   </view>
 </view>

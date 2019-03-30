@@ -13,9 +13,10 @@ const methods = {
       title: '加载中'
     })
     let that = this
+    let token = wx.getStorageSync('token')
     REQUEST.get(url, {
       data: {
-        token: app.globalData.token,
+        token: token,
         order_id:id
       }
     })
@@ -24,6 +25,8 @@ const methods = {
         if (status === 'success') {
           that.setData({
             orderDetail: data,
+            version_id: data.version_id,
+            version_name: data.version_name
           })
           wx.hideLoading()
         } else {
@@ -40,7 +43,10 @@ Page({
   data: {
     orderId: '',
     orderType:'',
-    orderDetail:{}
+    orderDetail:{},
+    version_id:'',
+    version_name:'',
+    popShow:true
   },
   ...methods,
   /**
@@ -49,13 +55,13 @@ Page({
   onLoad: function(options) {
     console.log(options)
     this.setData({
-      orderId: options.orderId,
+      orderId: options.orderId, 
     })
     this.getOrderDetail(options.orderId)
   },
   goList:function(){
-    wx.switchTab({
-      url: '../productList/productList'
+    wx.redirectTo({
+      url: '../productValuation/productValuation?id=' + this.data.version_id + '&name=' + this.data.version_name
     })
   },
   calling: function() {
@@ -82,6 +88,21 @@ Page({
   cancelOrder(){
     wx.navigateTo({
       url: '../../pages/cancelOrder/cancelOrder?orderId=' + this.data.orderId
+    })
+  },
+  closeFix(){
+    this.setData({
+      popShow:true
+    })
+  },
+  closePop(){
+    this.setData({
+      popShow: true
+    })
+  },
+  lookPop(){
+    this.setData({
+      popShow: false
     })
   },
   /**

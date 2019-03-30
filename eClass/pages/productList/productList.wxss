@@ -79,3 +79,7 @@
   border-right: none;
   /* color: #ffe401; */
 }
+.no-results{
+  font-size: 30rpx;
+  margin: 300rpx 0 0 100rpx;
+}

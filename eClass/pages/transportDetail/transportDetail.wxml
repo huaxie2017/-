@@ -1,0 +1,21 @@
+<!--pages/transportDetail/transportDetail.wxml-->
+<view class="transportDetail">
+  <view class="rule_title">退货运费包邮规则：</view>
+  <view class="price_konw">价格按照邮寄时同一包裹内所有物品在e修大师验货后总价进行计算。</view>
+  <view class="table_konw flex center">
+    <view class="flex_item1 th_r">回收物品价格</view>
+    <view class="flex_item1 th_r">验货后>=100元</view>
+    <view class="flex_item1 th_r">验货后＜100元</view>
+  </view>
+  <view class="table_content flex center">
+    <view class="flex_item1 content1 one">是否包邮</view>
+    <view class="flex_item1 content1 two">包邮，e修大师承担运费</view>
+    <view class="flex_item1 content1 three"> 不包邮，用户自行承担邮费；如果用户选择到付寄出物品，爱回收将在订单结算金额中扣除相应运费</view>
+  </view>
+  <view class="topic">
+    其他由用户自行承担运费的情况：
+  </view>
+  <view class="topic_li">
+    1，山寨机、高仿机、丢失模式机器、机器有密码但无法提供、所有无法开机/无法进入桌面/自动关机重启/有开机密码或iCloud等账户密码无法退出的机器、短期内在e修大师有交易记录的机器 2，如果在e修大师未对机器进行验货时，用户申请退货
+  </view>
+</view>

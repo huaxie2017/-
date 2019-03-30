@@ -1,11 +1,16 @@
+const app = getApp()
 import { API, REQUEST, TOAST } from '../../utils/index.js'
 let ids = []
 const methods = {
   init () { 
+    wx.showLoading({
+      title: '加载中',
+    })
     let url = API.getDetail + '?version_id=' + this.data.id
     REQUEST.get(url).then((res) => {
       const { status, data } = res.data
       if (status === 'success') {
+        wx.hideLoading()
         let arr = []
         for (let [key, val] of Object.entries(data)) {
           let item = {
@@ -21,6 +26,26 @@ const methods = {
           questionNum: arr.length,
           hasSelectedNum: 0
         })
+      }
+    })
+  },
+  send(params,type){
+    let token=wx.getStorageSync('token')
+    let url = API.getPrice + "?token=" + token
+    REQUEST.post(url, { data: params}).then((res) => {
+      const { status, data } = res.data
+      if (status === 'success') {
+        console.log(res)
+        wx.setStorageSync('orderInfoId', data.order_info_id)
+        if(type==1){
+          wx.navigateTo({
+            url: '/pages/payOrder/payOrder?version_id=' + data.order_info_id
+          })
+        }else{
+          wx.navigateTo({
+            url: '../login/login',
+          })
+        } 
       }
     })
   },
@@ -40,7 +65,7 @@ const methods = {
     }
     this.setData({
       hasSelectedNum: num,
-      progressWidth: 322 + (750 - 322) * num / this.data.questionModule.length
+      progressWidth: 100 + (750 - 100) * num / this.data.questionModule.length
     })
   },
   fnVerifyForm () { // 校验是否全选
@@ -61,27 +86,63 @@ const methods = {
   },
   submit () {
     if (this.fnVerifyForm()) {
-      // core code
-     wx.setStorageSync('ids', ids.join(','))
-      wx.navigateTo({
-        url: '/pages/payOrder/payOrder?version_id=' + this.data.id
-      })
+      let idArr = ids.join(',')
+      let version_id = this.data.id
+      let params={
+        version_id: version_id,
+        fault_id: idArr
+      }
+    // wx.setStorageSync('ids', ids.join(','))
+    if(!wx.getStorageSync('token')){
+      this.send(params,0)
+    }else{
+      this.send(params,1)
+    }
     }
   }
 }
 Page({
   data: {
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    hasUserInfo: false,
+    userInfo: {},
     id: null,
     name: null,
     questionModule: null,
     questionNum: null,
-    progressWidth: 322,
+    progressWidth: 100,
     tipsShow: false
   },  
   ...methods,
   onLoad: function (options) {
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
     this.setData({
-      id: options.id || 4113,
+      id: options.id,
       name: options.name,
       windowWidth: wx.getSystemInfoSync().windowWidth
     }, () => {

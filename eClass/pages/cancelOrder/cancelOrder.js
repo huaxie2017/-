@@ -1,7 +1,7 @@
 const app = getApp()
 import { API, REQUEST } from '../../utils/index.js'
 let url = app.globalData.Api + "/rdata/getCancel"
-let url1 = app.globalData.Api + "/rdata/cancelOrder"
+let url1 = app.globalData.Api + "/rdata/cancelOrder" 
 const methods = {
   getDetail() {
     wx.showLoading({
@@ -26,9 +26,10 @@ const methods = {
       title: '加载中'
     })
     let that = this
+    let token = wx.getStorageSync('token')
     REQUEST.get(url1,{
       data:{
-        token:app.globalData.token,
+        token: token,
         order_id:id,
         remark:index
       }
@@ -40,6 +41,9 @@ const methods = {
            // reasonList: data,
           })
           wx.hideLoading()
+          wx.redirectTo({
+            url: "../order/order?orderId=" + this.data.orderId
+          })
         } else {
           wx.hideLoading()
         }
@@ -105,9 +109,6 @@ Page({
       cancelShow: false
     })
     this.cancelOrder(this.data.orderId, this.data.chooseIndex)
-    wx.navigateTo({
-      url: "../order/order?orderId=" + this.data.orderId +"&orderStatus=4"
-    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

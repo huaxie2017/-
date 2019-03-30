@@ -137,3 +137,22 @@
   margin-top: 12rpx;
   background: rgba(255, 228, 1, 1);
 }
+/*授权显示*/
+.isLogin{
+ width: 100%;
+ position: fixed;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: #fff;
+ z-index: 120;
+ padding-bottom: 400rpx;
+}
+.getUserBtn{
+  width: 500rpx;
+  margin: 0 auto;
+  font-size: 30rpx;
+  color: #fff;
+  background: #41b883;
+  border:none;
+}

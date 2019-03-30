@@ -5,20 +5,23 @@
   </view> -->
   <view class='main'>
     <view class='search-header'>  
-      <block wx:for='{{selecteModule}}' wx:for-item='item' wx:key='id'>
-<view class='search-type {{item.selected ? "search-selected" : ""}}' data-index='{{index}}' data-item="{{item.selected}}" bindtap='selectType'>{{item.content}}</view>
+      <block wx:for='{{selecteModule}}' wx:for-item='item' wx:key='id' wx:for-index='index'>
+<view class='search-type {{item.selected ? "search-selected" : ""}}' data-types='{{index + 1}}' data-item="{{item.selected}}" data-id='{{brand_id}}' bindtap='selectType'>{{item.content}}</view>
       </block>
     </view>
     <view class='search-body'>
       <scroll-view class='search-label' scroll-y>
         <block wx:for='{{brandModule}}' wx:for-item='item' wx:key='id'>
-          <view class='search-label-item {{item.id == brand_id ? "isActived" : ""}}' bindtap='chooseBrand' data-id='{{item.id}}'>{{item.name}}</view>
+          <view class='search-label-item {{item.id == brand_id ? "isActived" : ""}}' bindtap='selectBrand' data-id='{{item.id}}'>{{item.name}}</view>
         </block>
       </scroll-view>
       <scroll-view class='search-results' scroll-y  scroll-top="{{scrollTop}}">
-        <block wx:for='{{versionModule}}' wx:key='id'>
+        <block wx:for='{{versionModule}}' wx:key='id'  wx:if='{{versionModule}}'>
           <view class='search-result-item' data-item='{{item}}' bindtap='goValuation'>{{item.name}}</view>
         </block>
+        <block wx:if='{{versionModule.length == 0}}'>
+         <view class='no-results'>暂无数据</view>
+        </block> 
       </scroll-view>
     </view>
   </view>

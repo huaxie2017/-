@@ -9,16 +9,16 @@
     <view class='progress-rate' style='width: {{progressWidth}}rpx;'></view>
   </view>
   <scroll-view class='valuation-body' scroll-y>
-    <block wx:for='{{questionModule}}' wx:for-index='idx' wx:for-item='item'>
+    <block wx:for='{{questionModule}}' wx:for-index='idx' wx:for-item='item' wx:key="index">
       <view class='question-item'>
         <view class='title'>
           <text class='align-mid'>{{idx + 1}}.{{item.name}}</text>
           <image src='../../images/messageIcon.png' class='icon-q marl-10 align-mid' bindtap='toggleTips'></image>
         </view>
         <view class='content'>
-          <block wx:for='{{item.detail}}' wx:for-item='detail'>
-            <view class='content-item'>
-              <text data-id='{{detail.id}}' data-idx='{{idx}}' class='{{item.selectId == detail.id ? "btn-select-s": "btn-select-d"}} btn-select' bindtap='chooseSize'></text>
+          <block wx:for='{{item.detail}}' wx:for-item='detail' wx:key="index">
+            <view class='content-item' bindtap='chooseSize' data-id='{{detail.id}}' data-idx='{{idx}}'>
+              <text class='{{item.selectId == detail.id ? "btn-select-s": "btn-select-d"}} btn-select'></text>
               <view>
                 <view>{{detail.name}}</view>
               </view>
